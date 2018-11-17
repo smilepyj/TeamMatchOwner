@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Font Size -->
+    <dimen name="font_size_30">30sp</dimen>
+    <dimen name="font_size_28">28sp</dimen>
+    <dimen name="font_size_25">25sp</dimen>
+    <dimen name="font_size_22">22sp</dimen>
+    <dimen name="font_size_20">20sp</dimen>
+    <dimen name="font_size_18">18sp</dimen>
+    <dimen name="font_size_16">16sp</dimen>
+    <dimen name="font_size_15">15sp</dimen>
+    <dimen name="font_size_14">14sp</dimen>
+    <dimen name="font_size_13">13sp</dimen>
+    <dimen name="font_size_12">12sp</dimen>
+    <dimen name="font_size_11">11sp</dimen>
+    <dimen name="font_size_10">10sp</dimen>
+    <dimen name="font_size_5">5sp</dimen>
+    <dimen name="font_size_4">4sp</dimen>
+
+    <!-- Dimen Size -->
+    <dimen name="dimen_size_1">1dp</dimen>
+    <dimen name="dimen_size_2">2dp</dimen>
+    <dimen name="dimen_size_3">3dp</dimen>
+    <dimen name="dimen_size_5">5dp</dimen>
+    <dimen name="dimen_size_8">8dp</dimen>
+    <dimen name="dimen_size_10">10dp</dimen>
+    <dimen name="dimen_size_15">15dp</dimen>
+    <dimen name="dimen_size_20">20dp</dimen>
+    <dimen name="dimen_size_35">35dp</dimen>
+    <dimen name="dimen_size_40">40dp</dimen>
+    <dimen name="dimen_size_45">45dp</dimen>
+    <dimen name="dimen_size_50">50dp</dimen>
+    <dimen name="dimen_size_52">52dp</dimen>
+    <dimen name="dimen_size_60">60dp</dimen>
+    <dimen name="dimen_size_68">68dp</dimen>
+    <dimen name="dimen_size_85">85dp</dimen>
+    <dimen name="dimen_size_88">88dp</dimen>
+    <dimen name="dimen_size_110">110dp</dimen>
+    <dimen name="dimen_size_155">155dp</dimen>
+    <dimen name="dimen_size_160">160dp</dimen>
+    <dimen name="dimen_size_165">165dp</dimen>
+    <dimen name="dimen_size_178">178dp</dimen>
+    <dimen name="dimen_size_240">240dp</dimen>
+    <dimen name="dimen_size_260">260dp</dimen>
+    <dimen name="dimen_size_280">280dp</dimen>
+    <dimen name="dimen_size_320">320dp</dimen>
+    <dimen name="dimen_size_330">330dp</dimen>
+    <dimen name="dimen_size_340">340dp</dimen>
+    <dimen name="dimen_size_380">380dp</dimen>
+    <dimen name="dimen_size_400">400dp</dimen>
+    <dimen name="dimen_size_424">424dp</dimen>
+
+    <!-- Layout Size -->
+    <dimen name="ll_under_line">1dp</dimen>
+    <dimen name="ll_margin">7dp</dimen>
+
+    <!-- Padding Size -->
+    <dimen name="bt_main_padding">15dp</dimen>
+    <dimen name="ll_under_line_margin_top">3dp</dimen>
+    <dimen name="tv_search_result_condition_padding">10dp</dimen>
+    <dimen name="listview_search_result_margin_vertical">5dp</dimen>
+    <dimen name="listview_search_result_padding_vertical">8dp</dimen>
+    <dimen name="listview_item_sidebar_margin_horizontal">7dp</dimen>
+    <dimen name="bt_user_info_hope_grounds">5dp</dimen>
+    <dimen name="listview_ranking_team_name_padding_left">10dp</dimen>
+    <dimen name="listview_ranking_drawable_left_padding">5dp</dimen>
+    <dimen name="listview_match_proc_margin_vertical">5dp</dimen>
+    <dimen name="listview_match_proc_padding_vertical">8dp</dimen>
+</resources>

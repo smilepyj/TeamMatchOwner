@@ -1,0 +1,148 @@
+<resources>
+    <string name="app_name">풋살매치 구장주</string>
+    <string name="application">TEAM_MATCH_OWNER</string>
+
+    <!-- System Message-->
+    <string name="exit_message">Back 버튼을 한번 더 누르면 어플리케이션이 종료됩니다.</string>
+    <string name="cording_message">현재 시스템 개발 중입니다...</string>
+    <string name="cording_message_ranking_area">지역랭킹 서비스는 추후 제공 됩니다...</string>
+    <string name="cording_message_search_grounds">구장 검색화면을 개발 중이여서 4개 구장을 강제로 입력합니다.</string>
+    <string name="permission_message">권한 사용에 동의하시지 않으시면 어플리케이션의 사용이 불가능합니다. 권한사용에 동의해주세요.</string>
+
+    <!-- Error Message -->
+    <string name="error_network">서비스 통신 중 에러가 발생하였습니다. 잠시 후 다시 시도해 주세요.</string>
+
+    <!-- Alert Dialog -->
+    <string name="aloer_dialog_title">알림</string>
+    <string name="alert_dialog_close">닫기</string>
+    <string name="alert_dialog_cancel">취소</string>
+    <string name="alert_dialog_exit">종료</string>
+
+    <!-- Login Activity -->
+    <string name="login_kakao_not_support">카카오톡 로그인은 아직 지원하지 않습니다.\n네이버 로그인을 이용해 주세요.</string>
+
+    <!-- UserInfo Activity -->
+    <string name="user_info_intent_extra">ACTIVITY_TYPE</string>
+    <string name="user_info_type_input">INPUT</string>
+    <string name="user_info_type_update">UPDTAE</string>
+
+    <string name="user_info_check_input_space">란을 입력해 주세요.</string>
+    <string name="user_info_check_select_not">을 선택해 주세요.</string>
+    <string name="user_info_service_input_sucess">회원 정보 저장에 성공하였습니다.</string>
+    <string name="user_info_input_exit">회원정보를 저장하지 않고 나갈 경우 회원 가입을 새로이 진행하셔야 합니다.\n그래도 정말 종료하시겠습니까?</string>
+
+    <string name="user_info_team_age_dialog_title">팀 연령 선택</string>
+    <string name="user_info_team_level_dialog_title">팀 레벨 선택</string>
+    <string name="user_info_dialog_cancel">취소</string>
+
+    <!-- SearchMatch Activity -->
+    <string name="search_match_check_date">매치 날짜를 선택해 주세요.</string>
+    <string name="search_match_check_time">매치 시간을 선택해 주세요.</string>
+    <string name="search_match_check_member">매치 인원을 선택해 주세요.</string>
+    <string name="search_match_check_level">희망 팀 레벨을 선택해 주세요.</string>
+
+    <string name="search_match_date_format_param">%d%d%s</string>
+    <string name="search_match_date_format_view">%d년 %d월 %d일 %s</string>
+    <string name="search_match_time_format_param">%d%d%d</string>
+    <string name="search_match_time_format_view">%d시 %d분</string>
+    <string name="search_match_time_format_hour">시</string>
+
+    <string name="search_match_extra_search_area_group_cnt">search_area_group_cnt</string>
+    <string name="search_match_extra_search_area_cnt">search_area_cnt</string>
+    <string name="search_match_extra_search_ground_cnt">search_ground_cnt</string>
+    <string name="search_match_extra_search_team_lvl_cnt">search_team_lvl_cnt</string>
+
+    <!-- SearchResult Activity -->
+    <string name="search_result_date_format_base">yyyymmdd</string>
+    <string name="search_result_date_format_view">yyyy년 mm월 dd일</string>
+    <string name="search_result_time_format_base">HH</string>
+    <string name="search_result_time_format_view">HH시</string>
+
+    <string name="search_result_nothing_time">시간무관</string>
+    <string name="search_result_nothing_member">인원무관</string>
+    <string name="search_result_nothing_level">레벨무관</string>
+
+    <string name="search_result_list_hyphen"> - </string>
+
+    <!--InsertMatch Activity -->
+    <string name="regist_match_check_ground">매치 구장을 선택해 주세요.</string>
+    <string name="regist_match_check_date">매치 날짜를 선택해 주세요.</string>
+    <string name="regist_match_check_start_time">매치 시작 시간을 선택해 주세요.</string>
+    <string name="regist_match_check_end_time">매치 종료 시간을 선택해 주세요.</string>
+    <string name="regist_match_check_member">매치 인원을 선택해 주세요.</string>
+    <string name="regist_match_check_level">희망 팀 레벨을 선택해 주세요.</string>
+
+    <string name="regist_match_date_format_param">%d%s%s</string>
+    <string name="regist_match_date_format_view">%d년 %d월 %d일 %s</string>
+    <string name="regist_match_time_format_param">%s%s%s</string>
+    <string name="regist_match_time_format_view">%d시 %d분</string>
+    <string name="regist_match_time_format_hour">시</string>
+    <string name="regist_match_time_hyphen">&#160;~&#160;</string>
+
+    <!-- Ranking Activity -->
+    <string name="ranking_type_total">T</string>
+    <string name="ranking_type_week">W</string>
+    <string name="ranking_type_area">L</string>
+
+    <string name="ranking_area_group_dialog_title">지역 선택</string>
+
+    <string name="ranking_fluctuation_up">U</string>
+    <string name="ranking_fluctuation_nothing">M</string>
+    <string name="ranking_fluctuation_down">D</string>
+    <string name="ranking_fluctuation_new">N</string>
+
+    <!-- Start Time Picker Dialog -->
+    <string name="start_time_picker_dialog_base_time">0000</string>
+    <string name="start_time_picker_dialog_hour">HOUR</string>
+    <string name="start_time_picker_dialog_set_time">TIME</string>
+
+    <!-- Alert Dialog -->
+    <string name="alert_dialog_title">TITLE</string>
+    <string name="alert_dialog_contents_header">HEADER</string>
+    <string name="alert_dialog_contents">CONTENTS</string>
+    <string name="alert_dialog_cancel_text">CANCEL</string>
+    <string name="alert_dialog_ok_text">OK</string>
+    <string name="alert_dialog_type">TYPE</string>
+
+    <!-- GroundDetail Activity -->
+    <string name="tel">tel:</string>
+
+    <string name="ground_detail_ground_id">GROUND_ID</string>
+    <string name="ground_detail_time_format">hhmm</string>
+    <string name="ground_detail_time_view">hh:mm</string>
+    <string name="ground_detail_cost_view">###,###</string>
+    <string name="ground_detail_option_yes">Y</string>
+    <string name="ground_detail_option_out">O</string>
+
+    <string name="ground_detail_no_phone_num">구장 전화번호 정보가 없습니다.</string>
+
+    <!-- Match Time Picker Dialog -->
+    <string name="match_time_picker_dialog_base_time">0000</string>
+    <string name="match_time_picker_dialog_start_hour">START_HOUR</string>
+    <string name="match_time_picker_dialog_end_hour">END_HOUR</string>
+    <string name="match_time_picker_dialog_start_time">START_TIME</string>
+    <string name="match_time_picker_dialog_end_time">END_TIME</string>
+    <string name="match_time_picker_dialog_check_pay">CHEDK_PAY</string>
+    <string name="match_time_picker_dialog_check_pay_yes">Y</string>
+    <string name="match_time_picker_dialog_check_pay_no">N</string>
+
+    <string name="match_time_picker_dialog_check_time">매치 시간은 최소 1시간 ~ 최대 3시간 사이로 설정해 주세요.</string>
+    <string name="match_time_picker_dialog_check_time_2">매치 시작 시간은 현재시간보다 최소 1시간 이후로 설정해 주세요.</string>
+
+    <!-- Match Apply Dialog -->
+    <string name="match_apply_extra_title">TITLE</string>
+    <string name="match_apply_extra_contents">CONTENTS</string>
+    <string name="match_apply_extra_match_id">MATCH_ID</string>
+    <string name="match_apply_extra_match_apply_id">MATCH_APPLY_ID</string>
+    <string name="match_apply_extra_team_id">TEAM_ID</string>
+    <string name="match_apply_extra_team_name">TEAM_NAME</string>
+    <string name="match_apply_extra_team_lvl">TEAM_LVL</string>
+    <string name="match_apply_extra_team_point">TEAM_POINT</string>
+    <string name="match_apply_extra_match_time">MATCH_TIME</string>
+    <string name="match_apply_extra_match_ground">MATCH_GROUND</string>
+
+    <!-- Match Success Dialog -->
+    <string name="match_success_extra_type">TYPE</string>
+    <string name="match_success_extra_regist">REGIST</string>
+    <string name="match_success_extra_proc">PROC</string>
+</resources>

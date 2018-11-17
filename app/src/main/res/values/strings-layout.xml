@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Intro Activity-->
+    <string name="intro_version">Ver. </string>
+
+    <!-- Login Activity -->
+    <string name="login">로그인</string>
+    <string name="login_kakao">카카오톡 로그인</string>
+    <string name="login_naver">네이버 로그인</string>
+    <string name="login_agreement_1">로그인 / 회원가입 시</string>
+    <string name="login_agreement_2"><u>이용약관,</u></string>
+    <string name="login_agreement_3"><u>개인정보 취급방침</u></string>
+    <string name="login_agreement_4">에 동의하게 됩니다.</string>
+    <string name="login_space">&#160;</string>
+    <string name="login_warning">로그인이 원활하지 않으실 경우 futsal0800@naver.com으로 문의주시기 바랍니다.</string>
+
+    <!-- Main Activity -->
+    <string name="main_search_match">매치검색</string>
+    <string name="main_registration_match">매치등록</string>
+    <string name="main_in_progress_matching">나의매치정보</string>
+    <string name="main_ranking">풋매 랭킹</string>
+
+    <!-- ToolBar -->
+    <string name="toolbar_item_navigation">메 뉴</string>
+
+    <!-- Navigation -->
+    <string name="navigation_header_main"> 님 반갑습니다.</string>
+    <string name="navigation_item_user">나의 팀 정보</string>
+    <string name="navigation_item_match">나의 매치 정보</string>
+    <string name="navigation_item_ranking">풋매랭킹</string>
+    <string name="navigation_item_logout">로그아웃</string>
+    <string name="navigation_call_center">풋살매치 고객센터</string>
+    <string name="navigation_call_number">1544-7979</string>
+
+    <!-- UserInfo Activity -->
+    <string name="user_info_title">회원정보</string>
+    <string name="user_info_user_name">이름</string>
+    <string name="user_info_user_name_hint">이름을 입력해주세요.</string>
+    <string name="user_info_phone_number">연락처</string>
+    <string name="user_info_phone_number_hint">연락처를 입력해주세요.</string>
+    <string name="user_info_team_name">팀이름</string>
+    <string name="user_info_team_name_hint">팀이름을 입력해주세요.</string>
+    <string name="user_info_team_age">팀연령</string>
+    <string name="user_info_hope_field">희망구장</string>
+    <string name="user_info_add_grounds">&#160;추가하기 +</string>
+    <string name="user_info_team_level">팀 레벨</string>
+    <string name="user_info_self_check">우리팀레벨\n확인하기</string>
+    <string name="user_info_save">저장하기</string>
+    <string name="user_info_update">수정하기</string>
+
+    <string name="user_info_select">선택</string>
+
+    <string name="user_info_hope_grounds_1">시지풋살장</string>
+    <string name="user_info_hope_grounds_2">수성풋살장</string>
+    <string name="user_info_hope_grounds_3">복현풋살클럽</string>
+    <string name="user_info_hope_grounds_4">반야월풋살장</string>
+
+    <!-- SearchMatch Activity -->
+    <string name="search_match_title">매치검색</string>
+    <string name="search_match_select_field">01. 매치 구장을 선택해 주세요.</string>
+    <string name="search_match_field_bssic">구장 선택</string>
+    <string name="search_match_select_day">02. 매치 날짜를 선택해 주세요.</string>
+    <string name="search_match_day_basic">날짜 선택</string>
+    <string name="search_match_start_time">03. 매치 시작 시간을 선택해 주세요.</string>
+    <string name="search_match_time_basic">시간 선택</string>
+    <string name="search_match_select_number">04. 매치 인원을 선택해 주세요.</string>
+    <string name="search_match_select_level">05. 희망 팀 레벨을 선택해 주세요.(중복 가능)</string>
+
+    <string name="search_match_time_nothing">무관</string>
+    <string name="search_match_base_select">선 택</string>
+    <string name="search_match_number_5">5 vs 5</string>
+    <string name="search_match_number_6">6 vs 6</string>
+    <string name="search_match_number_nothing">무 관</string>
+    <string name="search_match_level_challenger">상</string>
+    <string name="search_match_level_diamond">중상</string>
+    <string name="search_match_level_platinum">중</string>
+    <string name="search_match_level_gold">중하</string>
+    <string name="search_match_level_silver">하</string>
+    <string name="search_match_level_nothing">무관</string>
+    <string name="search_match_search">검색하기</string>
+
+    <!-- SearchGround Activity -->
+    <string name="search_ground_title">구장검색</string>
+    <string name="search_ground_type_1">나의 선호구장</string>
+    <string name="search_ground_type_2">가까운 구장</string>
+    <string name="search_ground_type_3">지역</string>
+    <string name="search_ground_select_end">선택 완료</string>
+    <string name="search_ground_select">원하시는 구장을 선택해주세요.</string>
+
+    <!-- SearchHopeGround Activity -->
+    <string name="search_hope_ground_title">선호구장선택</string>
+    <string name="search_hope_ground_type_1">가까운 구장</string>
+    <string name="search_hope_ground_type_2">지역</string>
+    <string name="search_hope_ground_select_end">선택 완료</string>
+    <string name="search_hope_ground_select">원하시는 선호구장을 선택해주세요.</string>
+
+    <!-- SearchResult Activity -->
+    <string name="search_result_title">실시간 매치정보</string>
+    <string name="search_result_condition_ground">구장</string>
+    <string name="search_result_condition_date">날짜</string>
+    <string name="search_result_condition_time">시간</string>
+    <string name="search_result_condition_member">인원</string>
+    <string name="search_result_condition_level">레벨</string>
+    <string name="search_result_change_condition">조건\n변경</string>
+    <string name="search_result_pre_payment_yes">결제완료</string>
+
+    <!-- ListView SearchResult -->
+    <string name="listview_search_result_request">매치신청</string>
+
+    <!-- InsertMatch Activity -->
+    <string name="regist_match_title">매치등록</string>
+    <string name="regist_match_select_field">01. 매치 구장을 선택해 주세요.</string>
+    <string name="regist_match_field_bssic">구장 선택</string>
+    <string name="regist_match_select_day">02. 매치 날짜를 선택해 주세요.</string>
+    <string name="regist_match_day_basic">날짜 선택</string>
+    <string name="regist_match_start_time">03. 매치 시작 시간을 선택해 주세요.</string>
+    <string name="regist_match_time_basic">시간 선택</string>
+    <string name="regist_match_select_number">04. 매치 인원을 선택해 주세요.</string>
+    <string name="regist_match_select_level">05. 희망 팀 레벨을 선택해 주세요.</string>
+
+    <string name="regist_match_time_nothing">무관</string>
+    <string name="regist_match_base_select">선 택</string>
+    <string name="regist_match_number_5">5 vs 5</string>
+    <string name="regist_match_number_6">6 vs 6</string>
+    <string name="regist_match_number_nothing">무 관</string>
+    <string name="regist_match_level_challenger">상</string>
+    <string name="regist_match_level_diamond">중상</string>
+    <string name="regist_match_level_platinum">중</string>
+    <string name="regist_match_level_gold">중하</string>
+    <string name="regist_match_level_silver">하</string>
+    <string name="regist_match_level_nothing">무관</string>
+    <string name="regist_match_insert">등록하기</string>
+
+    <!-- MatchProc Activity -->
+    <string name="match_proc_title">진행 중 매치</string>
+    <string name="match_proc_opponent_info">상대팀정보</string>
+    <string name="match_proc_pre_payment_yes">결제완료</string>
+
+    <!-- Ranking Activity -->
+    <string name="ranking_title">랭킹정보</string>
+    <string name="ranking_label_area">지역</string>
+    <string name="ranking_label_team_name">팀명</string>
+    <string name="ranking_condition_time">시간</string>
+    <string name="ranking_condition_member">인원</string>
+    <string name="ranking_condition_level">레벨</string>
+    <string name="ranking_search">검색</string>
+    <string name="ranking_init">초기화</string>
+
+    <string name="ranking_tab_total">전체 랭킹</string>
+    <string name="ranking_tab_week">주간 랭킹</string>
+    <string name="ranking_tab_area">지역 랭킹</string>
+    <string name="ranking_week_term">집계 기간 :&#160;</string>
+    <string name="ranking_week_dash">&#160;~&#160;</string>
+    <string name="ranking_list_title_rank">순위</string>
+    <string name="ranking_list_title_team_name">팀명</string>
+    <string name="ranking_list_title_point">포인트</string>
+    <string name="ranking_list_title_change">순위변동</string>
+
+    <string name="ranking_fluctuation_nothing_text">-</string>
+    <string name="ranking_fluctuation_new_text">new</string>
+    
+    <!-- Start Time Picker Dialog -->
+    <string name="start_time_picker_dialog_title">시작시간</string>
+    <string name="start_time_picker_dialog_sub_title">매치 시작시간을 선택해 주세요</string>
+    <string name="start_time_picker_dialog_hour_text">&#160;시</string>
+    <string name="start_time_picker_dialog_ok">확인</string>
+
+    <!-- GroundDeatil Activity -->
+    <string name="ground_detail_title">구장정보</string>
+    <string name="ground_detail_no_photo">해당 구장은 사진을 제공하지 않습니다</string>
+    <string name="ground_detail_location">위치</string>
+    <string name="ground_detail_operation">운영</string>
+    <string name="ground_detail_operation_hyphen">&#160;~&#160;</string>
+    <string name="ground_detail_won">원</string>
+    <string name="ground_detail_no_cost">해당 구장은 요금정보를 제공하지 않습니다.</string>
+    
+    <string name="ground_detail_inout_i">실내구장</string>
+    <string name="ground_detail_inout_o">실외구장</string>
+    <string name="ground_detail_park">주차장</string>
+    <string name="ground_detail_shower">샤워실</string>
+    <string name="ground_detail_light">야간조명</string>
+    <string name="ground_detail_shop">매점</string>
+    <string name="ground_detail_shoes">풋살화대여</string>
+    <string name="ground_detail_socks">축구양말판매</string>
+    <string name="ground_detail_film">영상녹화</string>
+
+    <string name="ground_detail_map">위치보기</string>
+    <string name="ground_detail_call">전화걸기</string>
+
+    <!-- GroundLocation Activity -->
+    <string name="ground_location_title">구장 위치 정보</string>
+
+    <!-- Match Time Picker Dialog -->
+    <string name="match_time_picker_dialog_title">매치시간</string>
+    <string name="match_time_picker_dialog_sub_title">매치 시간을 선택해주세요. (최대 3시간)</string>
+    <string name="match_time_picker_dialog_hour_text">&#160;시</string>
+    <string name="match_time_picker_dialog_hyphen">~</string>
+    <string name="match_time_picker_dialog_check_pay_text">구장 비용을 미리 결제했습니다.</string>
+    <string name="match_time_picker_dialog_ok">확인</string>
+    
+    <!-- Match Apply Dialog -->
+    <string name="match_apply_dialog_opponents">상대팀 정보</string>
+    <string name="match_apply_dialog_match">매치정보</string>
+    <string name="match_apply_dialog_no">거 절</string>
+    <string name="match_apply_dialog_yes">수 락</string>
+
+    <!-- Match Success Dialog -->
+    <string name="match_success_dialog_title">매치 성사</string>
+    <string name="match_success_dialog_sub_title_regist">매치가 성사 되었습니다.\n상대방이 결제중입니다.</string>
+    <string name="match_success_dialog_sub_title_proc">매치 전에 구장에 연락해 구장이용료를\n결제하시길 바랍니다.</string>
+    <string name="match_success_dialog_sub_title_etc_proc">(선 결제의 경우에는 동의 및 확인만 눌어주시면 됩니다.)</string>
+    <string name="match_success_dialog_team_name">상대팀 정보</string>
+    <string name="match_success_dialog_ground">구장정보</string>
+    <string name="match_success_dialog_manager">담당자&#160;</string>
+    <string name="match_success_dialog_parenthesis_open">&#160;(</string>
+    <string name="match_success_dialog_parenthesis_close">)</string>
+    <string name="match_success_dialog_info">매치정보</string>
+    <string name="match_success_dialog_cost">구장이용료 총</string>
+    <string name="match_success_dialog_won">원</string>
+    <string name="match_success_dialog_contents_regist">경기 시작 전/후 상대팀에게 구장이용료의\n절반을 정산해 주시길 바랍니다.</string>
+    <string name="match_success_dialog_contents_proc">경기 시작 전/후 상대팀에게 구장이용료의\n절반을 받으시길 바랍니다.</string>
+    <string name="match_success_dialog_check">풋살매치는 구장이용료 미정산으로 인한 매치 취소 등\n매치관련문제 발생 시 아무런 책임이 없음을 동의합니다.</string>
+    <string name="match_success_dialog_agree">동의 및 확인</string>
+
+    <!-- Rating Dialog -->
+    <string name="rating_dialog_title">매치 평가</string>
+    <string name="rating_dialog_sub_title">상대팀 실력과 매너 등을 종합한 점수로\n평가해주세요.</string>
+    <string name="rating_dialog_max_score">/ 100점</string>
+    <string name="rating_dialog_complete">평가완료</string>
+</resources>

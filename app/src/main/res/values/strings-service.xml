@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Naver Login Data -->
+    <string name="login_naver_client_id">NLUdTPJLKxmZ0qCaYnaS</string>
+    <string name="login_naver_client_secret">Hyy3LgZI30</string>
+    <string name="login_naver_url">https://openapi.naver.com/v1/nid/me</string>
+    <string name="login_naver_result_code">resultcode</string>
+    <string name="login_naver_response">response</string>
+
+    <string name="login_naver_result_id">id</string>
+    <string name="login_naver_result_email">email</string>
+    <string name="login_naver_result_name">name</string>
+
+    <string name="login_naver_success">00</string>
+
+    <string name="login_naver_login_type">naver</string>
+
+    <!-- Kakao Login Data -->
+    <string name="login_kakao_login_type">kakao</string>
+
+    <!-- Service URL -->
+    <string name="service_url">http://fm0800.cafe24.com:15101/tmServer/</string>
+
+    <!-- Service Parameter-->
+    <string name="result_code">result_code</string>
+    <string name="result_message">result_msg</string>
+    <string name="result_total_count">total_count</string>
+    <string name="result_data">data</string>
+    <string name="result_search_start_date">search_start_date</string>
+    <string name="result_search_end_date">search_end_date</string>
+
+    <!-- Service Error Code -->
+    <string name="service_sucess">000</string>
+    <string name="service_nothing">201</string>
+
+    <!-- userLogin Service -->
+    <string name="userlogin_service">login/userLogin</string>
+    <string name="userlogin_param_user_id">user_id</string>
+    <string name="userlogin_param_user_email">user_email</string>
+
+    <string name="userlogin_result_user_name">user_name</string>
+    <string name="userlogin_result_team_id">team_id</string>
+
+    <!-- insertUserInfo Service -->
+    <string name="insertuserinfo_service">user/insertUserInfo</string>
+    <string name="insertuserinfo_param_user_id">user_id</string>
+    <string name="insertuserinfo_param_user_email">user_email</string>
+    <string name="insertuserinfo_param_user_name">user_name</string>
+    <string name="insertuserinfo_param_user_telnum">user_telnum</string>
+    <string name="insertuserinfo_param_team_name">team_name</string>
+    <string name="insertuserinfo_param_hope_grounds">hope_grounds</string>
+    <string name="insertuserinfo_param_team_level_code">team_level_code</string>
+    <string name="insertuserinfo_param_team_age_code">team_age_code</string>
+
+    <!-- updateUserInfo Service -->
+    <string name="updateuserinfo_service">user/updateUserInfo</string>
+    <string name="updateuserinfo_param_user_id">user_id</string>
+    <string name="updateuserinfo_param_user_email">user_email</string>
+    <string name="updateuserinfo_param_user_name">user_name</string>
+    <string name="updateuserinfo_param_user_telnum">user_telnum</string>
+    <string name="updateuserinfo_param_team_id">team_id</string>
+    <string name="updateuserinfo_param_team_name">team_name</string>
+    <string name="updateuserinfo_param_hope_grounds">hope_grounds</string>
+    <string name="updateuserinfo_param_team_level_code">team_level_code</string>
+    <string name="updateuserinfo_param_team_age_code">team_age_code</string>
+
+    <!-- serarchUserInfo Service -->
+    <string name="searchuserinfo_service">user/searchUserInfo</string>
+    <string name="searchuserinfo_user_id">user_id</string>
+
+    <string name="searchuserinfo_result_user_name">user_name</string>
+    <string name="searchuserinfo_result_user_telnum">user_telnum</string>
+    <string name="searchuserinfo_result_team_id">team_id</string>
+    <string name="searchuserinfo_result_team_name">team_name</string>
+    <string name="searchuserinfo_result_team_age_code">team_age_code</string>
+    <string name="searchuserinfo_result_team_level_code">team_level_code</string>
+    <string name="searchuserinfo_result_hope_grounds">hope_grounds</string>
+
+    <!-- searchMatchList Service -->
+    <string name="searchmatchlist_service">match/searchMatchList</string>
+    <string name="searchmatchlist_param_user_id">user_id</string>
+    <string name="searchmatchlist_param_search_date">search_date</string>
+    <string name="searchmatchlist_param_search_start_time">search_start_time</string>
+    <string name="searchmatchlist_param_search_area_group">search_area_group</string>
+    <string name="searchmatchlist_param_search_area">search_area</string>
+    <string name="searchmatchlist_param_search_ground">search_ground</string>
+    <string name="searchmatchlist_param_search_team_member">search_team_member</string>
+    <string name="searchmatchlist_param_search_team_lvl">search_team_lvl</string>
+    <string name="searchmatchlist_param_search_count">search_count</string>
+    <string name="searchmatchlist_param_search_count_data">50</string>
+    <string name="searchmatchlist_param_search_page">search_page</string>
+    <string name="searchmatchlist_param_search_page_data">1</string>
+
+    <string name="searchmatchlist_result_match_id">match_id</string>
+    <string name="searchmatchlist_result_match_hope_ground_id">match_hope_ground_id</string>
+    <string name="searchmatchlist_result_match_hope_ground_sido_name">match_hope_ground_sido_name</string>
+    <string name="searchmatchlist_result_match_hope_ground_gugun_name">match_hope_ground_gugun_name</string>
+    <string name="searchmatchlist_result_match_hope_ground_name">match_hope_ground_name</string>
+    <string name="searchmatchlist_result_match_hope_date">match_hope_date</string>
+    <string name="searchmatchlist_result_match_hope_start_time">match_hope_start_time</string>
+    <string name="searchmatchlist_result_match_hope_end_time">match_hope_end_time</string>
+    <string name="searchmatchlist_result_match_host_name">match_host_name</string>
+    <string name="searchmatchlist_result_match_hope_team_lvl">match_hope_team_lvl</string>
+    <string name="searchmatchlist_result_match_hope_team_member">match_hope_team_member</string>
+    <string name="searchmatchlist_result_pre_payment_at">pre_payment_at</string>
+
+    <!-- applyMatch Service -->
+    <string name="applyMatch_service">match/applyMatch</string>
+    <string name="applyMatch_param_user_id">user_id</string>
+    <string name="applyMatch_param_match_id">match_id</string>
+
+    <!-- registMatch Service -->
+    <string name="registMatch_service">match/registMatch</string>
+    <string name="registMatch_param_user_id">user_id</string>
+    <string name="registMatch_param_match_hope_ground_id">match_hope_ground_id</string>
+    <string name="registMatch_param_match_hope_date">match_hope_date</string>
+    <string name="registMatch_param_match_hope_start_time">match_hope_start_time</string>
+    <string name="registMatch_param_match_hope_end_time">match_hope_end_time</string>
+    <string name="registMatch_param_match_hope_team_member">match_hope_team_member</string>
+    <string name="registMatch_param_match_hope_team_lvl">match_hope_team_lvl</string>
+    <string name="registMatch_param_pre_payment_at">pre_payment_at</string>
+
+    <!-- acceptMatch Service -->
+    <string name="acceptMatch_service">match/acceptMatch</string>
+    <string name="acceptMatch_param_user_id">user_id</string>
+    <string name="acceptMatch_param_match_id">match_id</string>
+    <string name="acceptMatch_param_match_apply_id">match_apply_id</string>
+    <string name="acceptMatch_param_accept_reject_type">accept_reject_type</string>
+
+    <!-- evalMatch Service -->
+    <string name="evalMatch_service">match/evalMatch</string>
+    <string name="evalMatch_param_user_id">user_id</string>
+    <string name="evalMatch_param_match_id">match_id</string>
+    <string name="evalMatch_param_team_id">team_id</string>
+    <string name="evalMatch_param_match_point">match_point</string>
+
+    <!-- MatchProc Service -->
+    <string name="matchProclist_result_match_id">match_id</string>
+    <string name="matchProclist_result_match_apply_id">match_apply_id</string>
+    <string name="matchProclist_result_guest_host_type">guest_host_type</string>
+    <string name="matchProclist_result_match_proc_cd">match_proc_cd</string>
+    <string name="matchProclist_result_match_proc_cd_name">match_proc_cd_name</string>
+    <string name="matchProclist_result_match_hope_ground_id">match_hope_ground_id</string>
+    <string name="matchProclist_result_match_hope_ground_sido_name">match_hope_ground_sido_name</string>
+    <string name="matchProclist_result_match_hope_ground_gugun_name">match_hope_ground_gugun_name</string>
+    <string name="matchProclist_result_match_hope_ground_name">match_hope_ground_name</string>
+    <string name="matchProclist_result_match_hope_date">match_hope_date</string>
+    <string name="matchProclist_result_match_hope_start_time">match_hope_start_time</string>
+    <string name="matchProclist_result_match_hope_end_time">match_hope_end_time</string>
+    <string name="matchProclist_result_match_host_name">match_host_name</string>
+    <string name="matchProclist_result_match_hope_team_lvl">match_hope_team_lvl</string>
+    <string name="matchProclist_result_match_hope_team_member">match_hope_team_member</string>
+    <string name="matchProclist_result_opponent_name">opponent_name</string>
+    <string name="matchProclist_result_opponent_lvl">opponent_lvl</string>
+    <string name="matchProclist_result_opponent_point">opponent_point</string>
+    <string name="matchProclist_result_pre_payment_at">pre_payment_at</string>
+    <string name="matchProclist_result_eval_at">eval_at</string>
+
+    <!-- searchMatchAlertInfo Service -->
+    <string name="searchMatchAlertInfo_service">match/searchMatchAlertInfo</string>
+    <string name="searchMatchAlertInfo_param_user_id">user_id</string>
+    <string name="searchMatchAlertInfo_param_match_id">match_id</string>
+    <string name="searchMatchAlertInfo_param_match_apply_id">match_apply_id</string>
+    <string name="searchMatchAlertInfo_param_match_alert_type">match_alert_type</string>
+
+    <!-- Ranking Service-->
+    <string name="ranking_service">rank/searchRankList</string>
+    <string name="ranking_param_user_id">user_id</string>
+    <string name="ranking_param_search_area_group">search_area_group</string>
+    <string name="ranking_param_search_team_name">search_team_name</string>
+    <string name="ranking_param_search_count">search_count</string>
+    <string name="ranking_param_search_page">search_page</string>
+    
+    <string name="ranking_result_rank_no">rank</string>
+    <string name="ranking_result_team_name">team_name</string>
+    <string name="ranking_result_team_point">team_point</string>
+    <string name="ranking_result_team_rank_fluctuation_code">team_rank_fluctuation_code</string>
+    <string name="ranking_result_team_rank_fluctuation">team_rank_fluctuation</string>
+
+    <!-- groundDetail Service -->
+    <string name="ground_detail_service">ground/searchGroundDetail</string>
+    <string name="ground_detail_param_user_id">user_id</string>
+    <string name="ground_detail_param_ground_id">ground_id</string>
+
+    <string name="ground_detail_result_ground_id">ground_id</string>
+    <string name="ground_detail_result_ground_name">ground_name</string>
+    <string name="ground_detail_result_open_time">open_time</string>
+    <string name="ground_detail_result_close_time">close_time</string>
+    <string name="ground_detail_result_field_count">field_count</string>
+    <string name="ground_detail_result_ground_tel">ground_tel</string>
+    <string name="ground_detail_result_ground_cost_info">ground_cost_info</string>
+    <string name="ground_detail_result_ground_cost_gbn">ground_cost_gbn</string>
+    <string name="ground_detail_result_ground_cost">ground_cost</string>
+    <string name="ground_detail_result_ground_addr">ground_addr</string>
+    <string name="ground_detail_result_ground_loc_lat">ground_loc_lat</string>
+    <string name="ground_detail_result_ground_loc_lon">ground_loc_lon</string>
+    <string name="ground_detail_result_ground_desc">ground_desc</string>
+    <string name="ground_detail_result_in_out_gbn">in_out_gbn</string>
+    <string name="ground_detail_result_parking_gbn">parking_gbn</string>
+    <string name="ground_detail_result_shower_room_gbn">shower_room_gbn</string>
+    <string name="ground_detail_result_shoes_rental_gbn">shoes_rental_gbn</string>
+    <string name="ground_detail_result_socks_cell_gbn">socks_cell_gbn</string>
+    <string name="ground_detail_result_store_gbn">store_gbn</string>
+    <string name="ground_detail_result_video_record_gbn">video_record_gbn</string>
+    <string name="ground_detail_result_night_light_gbn">night_light_gbn</string>
+    <string name="ground_detail_result_ground_img">ground_img</string>
+    <string name="ground_detail_result_img_url">img_url</string>
+    <string name="ground_detail_result_thumb_img_url">thumb_img_url</string>
+</resources>

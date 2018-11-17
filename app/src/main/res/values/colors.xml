@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#E5E5E5</color>
+    <color name="colorAccent">#00AE55</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorInvisible">#FFFFFFFF</color>
+
+    <color name="color_F4F4F4">#F4F4F4</color>
+    <color name="color_DCDCDC">#DCDCDC</color>
+    <color name="color_D2D2D2">#D2D2D2</color>
+    <color name="color_ADADAD">#ADADAD</color>
+    <color name="color_A8A8A8">#A8A8A8</color>
+    <color name="color_959595">#959595</color>
+    <color name="color_7D7D7D">#7D7D7D</color>
+    <color name="color_626262">#626262</color>
+    <color name="color_535353">#535353</color>
+    <color name="color_313131">#313131</color>
+
+    <color name="color_D6352A">#D6352A</color>
+    <color name="color_E60012">#E60012</color>
+
+    <color name="color_00AE55">#00AE55</color>
+    <color name="color_007338">#007338</color>
+    <color name="color_017338">#017338</color>
+
+    <!-- Tool Bar -->
+    <color name="color_toolbar_title">#313131</color>
+
+    <!-- Login Activity -->
+    <color name="color_login_naver">#22B600</color>
+    <color name="color_login_naver_text">#FFFFFF</color>
+    <color name="color_login_kakao">#FFE001</color>
+    <color name="color_login_kakao_text">#544A44</color>
+    <color name="color_login_agreement_text">#313131</color>
+    <color name="color_login_warning_text">#BCBCBC</color>
+
+    <!-- UserInfo Activity -->
+    <color name="color_userinfo_title">#313131</color>
+    <color name="color_userinfo_input">#959595</color>
+    <color name="color_userinfo_border">#959595</color>
+
+    <color name="color_userinfo_button_enable">#00AE55</color>
+    <color name="color_userinfo_button_enable_stroke">#00AE55</color>
+    <color name="color_userinfo_button_enable_text">#FFFFFF</color>
+    <color name="color_userinfo_button_press">#00AE55</color>
+    <color name="color_userinfo_button_press_stroke">#00AE55</color>
+    <color name="color_userinfo_button_press_text">#FFFFFF</color>
+    <color name="color_userinfo_button_level_test">#3A5795</color>
+    <color name="color_userinfo_button_level_test_stroke">#3A5795</color>
+    <color name="color_userinfo_button_level_test_text">#FFFFFF</color>
+
+    <!-- searchmatch Activity -->
+    <color name="color_searchmatch_title">#959595</color>
+    <color name="color_searchmatch_select">#00AE55</color>
+    <color name="color_searchmatch_line">#959595</color>
+
+    <color name="color_searchmatch_button_select_enable">#FFFFFF</color>
+    <color name="color_searchmatch_button_select_enable_stroke">#DCDCDC</color>
+    <color name="color_searchmatch_button_select_enable_text">#D4D4D4</color>
+    <color name="color_searchmatch_button_select_press">#00AE55</color>
+    <color name="color_searchmatch_button_select_press_stroke">#00AE55</color>
+    <color name="color_searchmatch_button_select_press_text">#FFFFFF</color>
+    <color name="color_searchmatch_button_search_enable">#007338</color>
+    <color name="color_searchmatch_button_search_enable_stroke">#007338</color>
+    <color name="color_searchmatch_button_search_enable_text">#FFFFFF</color>
+    <color name="color_searchmatch_button_search_press">#007338</color>
+    <color name="color_searchmatch_button_search_press_stroke">#007338</color>
+    <color name="color_searchmatch_button_search_press_text">#FFFFFF</color>
+
+    <!-- SearchResult Activity -->
+    <color name="color_search_result_condition_background">#00AE55</color>
+    <color name="color_search_result_button_change_text">#313131</color>
+    <color name="color_search_result_button_change_border">#D2D2D2</color>
+    <color name="color_search_result_listview_background">#F8F8FA</color>
+
+    <!-- Listview SearchResult -->
+    <color name="color_listview_search_result_contents">#313131</color>
+    <color name="color_listview_search_result_contents_accent">#017338</color>
+    <color name="color_listview_search_result_request">#FF0000</color>
+    <color name="color_listview_search_result_sidebar">#A8A8A8</color>
+    <color name="color_listview_search_result_border">#D2D2D2</color>
+
+    <!-- SearchGround Activity -->
+    <color name="color_search_ground_contents">#A0A0A0</color>
+    <color name="color_search_ground_border">#D2D2D2</color>
+    <color name="color_search_ground_layout_select_ground">#F8F8FA</color>
+
+    <color name="color_search_ground_button_type_enable">#F8F8FA</color>
+    <color name="color_search_ground_button_type_enable_text">#A0A0A0</color>
+    <color name="color_search_ground_button_type_press">#00AE55</color>
+    <color name="color_search_ground_button_type_press_text">#FFFFFF</color>
+    <color name="color_search_ground_button_stroke">#E5E5E5</color>
+
+    <color name="color_search_ground_button_select_end_enable">#007338</color>
+    <color name="color_search_ground_button_select_end_enable_stroke">#007338</color>
+    <color name="color_search_ground_button_select_end_enable_text">#FFFFFF</color>
+    <color name="color_search_ground_button_select_end_press">#007338</color>
+    <color name="color_search_ground_button_select_end_press_stroke">#007338</color>
+    <color name="color_search_ground_button_select_end_press_text">#FFFFFF</color>
+
+    <!-- SearchHopeGround Activity -->
+    <color name="color_search_hope_ground_contents">#A0A0A0</color>
+    <color name="color_search_hope_ground_border">#D2D2D2</color>
+    <color name="color_search_hope_ground_layout_select_ground">#F8F8FA</color>
+
+    <color name="color_search_hope_ground_button_type_enable">#F8F8FA</color>
+    <color name="color_search_hope_ground_button_type_enable_text">#A0A0A0</color>
+    <color name="color_search_hope_ground_button_type_press">#00AE55</color>
+    <color name="color_search_hope_ground_button_type_press_text">#FFFFFF</color>
+    <color name="color_search_hope_ground_button_stroke">#E5E5E5</color>
+
+    <color name="color_search_hope_ground_button_select_end_enable">#007338</color>
+    <color name="color_search_hope_ground_button_select_end_enable_stroke">#007338</color>
+    <color name="color_search_hope_ground_button_select_end_enable_text">#FFFFFF</color>
+    <color name="color_search_hope_ground_button_select_end_press">#007338</color>
+    <color name="color_search_hope_ground_button_select_end_press_stroke">#007338</color>
+    <color name="color_search_hope_ground_button_select_end_press_text">#FFFFFF</color>
+
+    <!-- Listview SearchGround -->
+    <color name="color_listview_search_ground_contents">#313131</color>
+    <color name="color_listview_search_ground_contents_active">#00AE55</color>
+
+    <!-- InsertMatch Activity -->
+    <color name="color_regist_match_title">#959595</color>
+    <color name="color_regist_match_select">#00AE55</color>
+    <color name="color_regist_match_line">#959595</color>
+
+    <color name="color_regist_match_button_select_enable">#FFFFFF</color>
+    <color name="color_regist_match_button_select_enable_stroke">#DCDCDC</color>
+    <color name="color_regist_match_button_select_enable_text">#D4D4D4</color>
+    <color name="color_regist_match_button_select_press">#00AE55</color>
+    <color name="color_regist_match_button_select_press_stroke">#00AE55</color>
+    <color name="color_regist_match_button_select_press_text">#FFFFFF</color>
+    <color name="color_regist_match_button_regist_enable">#007338</color>
+    <color name="color_regist_match_button_regist_enable_stroke">#007338</color>
+    <color name="color_regist_match_button_regist_enable_text">#FFFFFF</color>
+    <color name="color_regist_match_button_regist_press">#007338</color>
+    <color name="color_regist_match_button_regist_press_stroke">#007338</color>
+    <color name="color_regist_match_button_regist_press_text">#FFFFFF</color>
+
+    <!-- Listview MatchProc -->
+    <color name="color_listview_match_proc_contents">#313131</color>
+    <color name="color_listview_match_proc_contents_accent">#017338</color>
+    <color name="color_listview_match_proc_name_1">#E60012</color>
+    <color name="color_listview_match_proc_name_2">#0B4EA2</color>
+    <color name="color_listview_match_proc_name_3">#601986</color>
+    <color name="color_listview_match_proc_name_4">#007338</color>
+    <color name="color_listview_match_proc_name_5">#313131</color>
+    <color name="color_listview_match_proc_sidebar">#A8A8A8</color>
+    <color name="color_listview_match_proc_border">#D2D2D2</color>
+    <color name="color_listview_match_proc_opponent_info">#FF0000</color>
+
+    <!-- Ranking Activity -->
+    <color name="color_ranking_button_tab_enable">#F8F8FA</color>
+    <color name="color_ranking_button_tab_enable_text">#A0A0A0</color>
+    <color name="color_ranking_button_tab_press">#00AE55</color>
+    <color name="color_ranking_button_tab_press_text">#FFFFFF</color>
+    <color name="color_ranking_button_stroke">#E5E5E5</color>
+    <color name="color_ranking_tab_bottom">#00AE55</color>
+    <color name="color_ranking_search_text">#313131</color>
+    <color name="color_ranking_search_stroke">#DCDCDC</color>
+    <color name="color_ranking_button_search_init">#B6B6B6</color>
+
+    <color name="color_ranking_list_title_text">#898989</color>
+    <color name="color_ranking_list_title">#F6F6F6</color>
+    <color name="color_ranking_list_title_stroke">#E5E5E5</color>
+
+    <!-- Listview Ranking -->
+    <color name="color_listview_ranking_contents">#313131</color>
+    <color name="color_listview_ranking_up">#D6352A</color>
+    <color name="color_listview_ranking_down">#0068B7</color>
+
+    <!-- Term Service Dialog -->
+    <color name="color_term_service_dialog_title_text">#313131</color>
+    <color name="color_term_service_dialog_contents">#626262</color>
+
+    <!-- Privacy Dialog -->
+    <color name="color_privacy_dialog_title_text">#313131</color>
+    <color name="color_privacy_dialog_contents">#626262</color>
+</resources>
