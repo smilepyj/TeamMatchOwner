@@ -127,6 +127,12 @@
     <string name="acceptMatch_param_match_apply_id">match_apply_id</string>
     <string name="acceptMatch_param_accept_reject_type">accept_reject_type</string>
 
+    <!-- approveMatch Service -->
+    <string name="approveMatch_service">match/approveMatch</string>
+    <string name="approveMatch_param_owner_id">owner_id</string>
+    <string name="approveMatch_param_match_id">match_id</string>
+    <string name="approveMatch_param_approve_return_type">approve_return_type</string>
+
     <!-- evalMatch Service -->
     <string name="evalMatch_service">match/evalMatch</string>
     <string name="evalMatch_param_user_id">user_id</string>
@@ -156,12 +162,42 @@
     <string name="matchProclist_result_pre_payment_at">pre_payment_at</string>
     <string name="matchProclist_result_eval_at">eval_at</string>
 
+    <!-- OwnerMatchProc Service -->
+    <string name="ownerMatchProclist_result_match_id">match_id</string>
+    <string name="ownerMatchProclist_result_match_apply_id">match_apply_id</string>
+    <string name="ownerMatchProclist_result_match_proc_cd">match_proc_cd</string>
+    <string name="ownerMatchProclist_result_match_proc_cd_name">match_proc_cd_name</string>
+    <string name="ownerMatchProclist_result_match_hope_ground_id">match_hope_ground_id</string>
+    <string name="ownerMatchProclist_result_match_hope_ground_name">match_hope_ground_name</string>
+    <string name="ownerMatchProclist_result_match_hope_ground_sido_name">match_hope_ground_sido_name</string>
+    <string name="ownerMatchProclist_result_match_hope_ground_gugun_name">match_hope_ground_gugun_name</string>
+    <string name="ownerMatchProclist_result_host_team_id">host_team_id</string>
+    <string name="ownerMatchProclist_result_host_team_name">host_team_name</string>
+    <string name="ownerMatchProclist_result_host_team_lvl">host_team_lvl</string>
+    <string name="ownerMatchProclist_result_host_team_point">host_team_point</string>
+    <string name="ownerMatchProclist_result_guest_team_id">guest_team_id</string>
+    <string name="ownerMatchProclist_result_guest_team_name">guest_team_name</string>
+    <string name="ownerMatchProclist_result_guest_team_lvl">guest_team_lvl</string>
+    <string name="ownerMatchProclist_result_guest_team_point">guest_team_point</string>
+    <string name="ownerMatchProclist_result_match_hope_date">match_hope_date</string>
+    <string name="ownerMatchProclist_result_match_hope_start_time">match_hope_start_time</string>
+    <string name="ownerMatchProclist_result_match_hope_end_time">match_hope_end_time</string>
+    <string name="ownerMatchProclist_result_match_hope_team_lvl">match_hope_team_lvl</string>
+    <string name="ownerMatchProclist_result_match_hope_team_member">match_hope_team_member</string>
+    <string name="ownerMatchProclist_result_pre_payment_at">pre_payment_at</string>
+
     <!-- searchMatchAlertInfo Service -->
     <string name="searchMatchAlertInfo_service">match/searchMatchAlertInfo</string>
     <string name="searchMatchAlertInfo_param_user_id">user_id</string>
     <string name="searchMatchAlertInfo_param_match_id">match_id</string>
     <string name="searchMatchAlertInfo_param_match_apply_id">match_apply_id</string>
     <string name="searchMatchAlertInfo_param_match_alert_type">match_alert_type</string>
+
+    <!-- searchOwnerMatchAlertInfo Service -->
+    <string name="searchOwnerMatchAlertInfo_service">match/searchOwnerMatchAlertInfo</string>
+    <string name="searchOwnerMatchAlertInfo_param_owner_id">owner_id</string>
+    <string name="searchOwnerMatchAlertInfo_param_match_id">match_id</string>
+    <string name="searchOwnerMatchAlertInfo_param_match_alert_type">match_alert_type</string>
 
     <!-- Ranking Service-->
     <string name="ranking_service">rank/searchRankList</string>

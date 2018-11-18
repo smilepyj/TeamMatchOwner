@@ -59,6 +59,12 @@
         <activity
             android:name=".GroundLocationActivity"
             android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".util.DialogMatchSuccessActivity"
+            android:theme="@style/DialogTheme" />
+        <activity
+            android:name=".util.DialogAlertActivity"
+            android:theme="@style/DialogTheme" />
     </application>
 
 </manifest>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">풋살매치 구장주</string>
+    <string name="app_name">풋살매치 구장주용</string>
     <string name="application">TEAM_MATCH_OWNER</string>
 
     <!-- System Message-->
@@ -115,6 +115,7 @@
     <string name="ground_detail_option_out">O</string>
 
     <string name="ground_detail_no_phone_num">구장 전화번호 정보가 없습니다.</string>
+    <string name="manager_no_phone_num">담당자 전화번호 정보가 없습니다.</string>
 
     <!-- Match Time Picker Dialog -->
     <string name="match_time_picker_dialog_base_time">0000</string>

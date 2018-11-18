@@ -136,6 +136,31 @@ public class Service {
     }
 
     /**
+     * 매치 승인/반려 서비스
+     * Created by maloman72 on 218-11-01
+     * */
+    public void approveMatch(ResponseListener responseListener, String match_id, String approve_return_type) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.approveMatch_service);
+            String owner_id = mApplicationTM.getOwnerId();
+
+            owner_id = "asdf1234";
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.approveMatch_param_owner_id), owner_id);
+            mJSONObject.put(mContext.getString(R.string.approveMatch_param_match_id), match_id);
+            mJSONObject.put(mContext.getString(R.string.approveMatch_param_approve_return_type), approve_return_type);
+
+            Log.e(TAG, mJSONObject + "");
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "approveMatch - " + e);
+        }
+
+    }
+
+    /**
      * 매치 알람 정보 조회 서비스
      * Created by maloman72 on 218-11-01
      * */
@@ -149,6 +174,29 @@ public class Service {
             mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_id), match_id);
             mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_apply_id), match_apply_id);
             mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_alert_type), match_alert_type);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchMatchAlertInfo - " + e);
+        }
+
+    }
+
+    /**
+     * 구장주 매치 알람 정보 조회 서비스
+     * Created by maloman72 on 218-11-01
+     * */
+    public void searchOwnerMatchAlertInfo(ResponseListener responseListener, String match_id, String match_alert_type) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchOwnerMatchAlertInfo_service);
+            String owner_id = mApplicationTM.getOwnerId();
+
+            owner_id = "asdf1234";
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchAlertInfo_param_owner_id), owner_id);
+            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchAlertInfo_param_match_id), match_id);
+            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchAlertInfo_param_match_alert_type), match_alert_type);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
