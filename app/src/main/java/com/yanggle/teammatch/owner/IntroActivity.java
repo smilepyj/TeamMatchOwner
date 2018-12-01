@@ -88,19 +88,14 @@ public class IntroActivity extends AppCompatActivity {
      * */
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == 1) {
-            /*for(int mRssult : grantResults) {
+            for(int mRssult : grantResults) {
                 if(mRssult != PackageManager.PERMISSION_GRANTED) {
                     mApplicationTM.makeToast(mContext, getString(R.string.permission_message));
                     return;
                 }
-            }*/
+            }
 
-            Intent mIntent = new Intent(mContext, MatchProcActivity.class);
-            startActivity(mIntent);
-            finish();
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-
-//            CheckLogin();
+            CheckLogin();
         }
     }
 
@@ -109,13 +104,13 @@ public class IntroActivity extends AppCompatActivity {
      * Created by maloman72 on 2018-11-10
      * */
     private void CheckLogin() {
-        if("".equals(mApplicationTM.getOwnerId())) {
+        if("".equals(mApplicationTM.getOwnerId()) || "".equals(mApplicationTM.getOwnerPassword())) {
             Intent mIntent = new Intent(mContext, LoginActivity.class);
             startActivity(mIntent);
             finish();
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         } else {
-            mService.userLogin(userLogin_Listener, mApplicationTM.getOwnerId(), mApplicationTM.getUserEmail());
+            mService.ownerLogin(ownerLogin_Listener, mApplicationTM.getOwnerId(), mApplicationTM.getOwnerPassword());
         }
     }
 
@@ -123,7 +118,7 @@ public class IntroActivity extends AppCompatActivity {
      * userLogin Service Listener
      * Created by maloman72 on 2018-11-02
      * */
-    ResponseListener userLogin_Listener = new ResponseListener() {
+    ResponseListener ownerLogin_Listener = new ResponseListener() {
         @Override
         public void receive(ResponseEvent responseEvent) {
             try {
@@ -133,19 +128,10 @@ public class IntroActivity extends AppCompatActivity {
                     if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                         JSONObject mResult = mJSONObject.getJSONObject(mContext.getString(R.string.result_data));
 
-                        mApplicationTM.setUserName(mResult.get(mContext.getString(R.string.userlogin_result_user_name)).toString());
-                        mApplicationTM.setTeamId(mResult.get(mContext.getString(R.string.userlogin_result_team_id)).toString());
+                        mApplicationTM.setOwnerData(mResult);
 
                         Intent mIntent;
                         mIntent = new Intent(mContext, MatchProcActivity.class);
-
-                        /*if("".equals(mResult.get(getString(R.string.userlogin_result_user_name)))) {
-                            mIntent = new Intent(mContext, UserInfoActivity.class);
-                            mIntent.putExtra(getString(R.string.user_info_intent_extra), getString(R.string.user_info_type_input));
-                        } else {
-                            mIntent = new Intent(mContext, MainActivity.class);
-                        }*/
-
                         startActivity(mIntent);
                         finish();
                     } else {

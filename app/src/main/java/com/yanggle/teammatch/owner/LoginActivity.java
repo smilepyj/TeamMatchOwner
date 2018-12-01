@@ -7,7 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.yanggle.teammatch.owner.network.ResponseEvent;
 import com.yanggle.teammatch.owner.network.ResponseListener;
@@ -26,7 +27,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private Service mService;
 
-    TextView tv_login_term_service, tv_login_privacy;
+    EditText et_login_id, et_login_password;
+    Button bt_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +42,11 @@ public class LoginActivity extends AppCompatActivity {
 
         mService = new Service(mContext);
 
-        tv_login_term_service = findViewById(R.id.tv_login_term_service);
-        tv_login_privacy = findViewById(R.id.tv_login_privacy);
+        et_login_id = findViewById(R.id.et_login_id);
+        et_login_password = findViewById(R.id.et_login_password);
+        bt_login = findViewById(R.id.bt_login);
 
-        tv_login_term_service.setOnClickListener(mOnClickListener);
-        tv_login_privacy.setOnClickListener(mOnClickListener);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        bt_login.setOnClickListener(mOnClickListener);
     }
 
     @Override
@@ -76,12 +73,9 @@ public class LoginActivity extends AppCompatActivity {
     View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent mIntent;
-
             switch (v.getId()) {
-                case R.id.bt_login_kakao :
-                    mApplicationTM.makeToast(mContext, getString(R.string.login_kakao_not_support));
-                    mService.userLogin(userLogin_Listener, mApplicationTM.getOwnerId(), mApplicationTM.getUserEmail());
+                case R.id.bt_login :
+                    OwnerLogin();
                     break;
                 default :
                     break;
@@ -89,17 +83,24 @@ public class LoginActivity extends AppCompatActivity {
         }
     };
 
-    private void GoMain() {
-        Intent mIntent = new Intent(mContext, MainActivity.class);
-        startActivity(mIntent);
-        finish();
+    private void OwnerLogin() {
+        if("".equals(et_login_id.getText().toString())) {
+            mApplicationTM.makeToast(mContext, getString(R.string.login_not_id));
+            return;
+        }
+        if("".equals(et_login_password.getText().toString())) {
+            mApplicationTM.makeToast(mContext, getString(R.string.login_not_password));
+            return;
+        }
+
+        mService.ownerLogin(ownerLogin_Listener, et_login_id.getText().toString(), et_login_password.getText().toString());
     }
 
     /**
      * userLogin Service Listener
      * Created by maloman72 on 2018-11-02
      * */
-    ResponseListener userLogin_Listener = new ResponseListener() {
+    ResponseListener ownerLogin_Listener = new ResponseListener() {
         @Override
         public void receive(ResponseEvent responseEvent) {
             try {
@@ -109,18 +110,11 @@ public class LoginActivity extends AppCompatActivity {
                     if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
                         JSONObject mResult = mJSONObject.getJSONObject(mContext.getString(R.string.result_data));
 
-                        mApplicationTM.setTeamId(mResult.get(mContext.getString(R.string.userlogin_result_team_id)).toString());
+                        mApplicationTM.setOwnerId(et_login_id.getText().toString());
+                        mApplicationTM.setOwnerPassword(et_login_password.getText().toString());
+                        mApplicationTM.setOwnerData(mResult);
 
-                        Intent mIntent;
-                        mIntent = new Intent(mContext, MainActivity.class);
-
-                        /*if("".equals(mResult.get(getString(R.string.userlogin_result_user_name)))) {
-                            mIntent = new Intent(mContext, UserInfoActivity.class);
-                            mIntent.putExtra(getString(R.string.user_info_intent_extra), getString(R.string.user_info_type_input));
-                        } else {
-                            mIntent = new Intent(mContext, MainActivity.class);
-                        }*/
-
+                        Intent mIntent = new Intent(mContext, MatchProcActivity.class);
                         startActivity(mIntent);
                         finish();
                     } else {
@@ -128,6 +122,9 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 } else {
                     mApplicationTM.makeToast(mContext, getString(R.string.error_network));
+//                    Intent mIntent = new Intent(mContext, MatchProcActivity.class);
+//                    startActivity(mIntent);
+//                    finish();
                 }
             } catch (Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));

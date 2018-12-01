@@ -22,9 +22,11 @@
     <dimen name="dimen_size_2">2dp</dimen>
     <dimen name="dimen_size_3">3dp</dimen>
     <dimen name="dimen_size_5">5dp</dimen>
+    <dimen name="dimen_size_7">7dp</dimen>
     <dimen name="dimen_size_8">8dp</dimen>
     <dimen name="dimen_size_10">10dp</dimen>
     <dimen name="dimen_size_15">15dp</dimen>
+    <dimen name="dimen_size_16">16dp</dimen>
     <dimen name="dimen_size_20">20dp</dimen>
     <dimen name="dimen_size_35">35dp</dimen>
     <dimen name="dimen_size_40">40dp</dimen>
@@ -47,25 +49,9 @@
     <dimen name="dimen_size_320">320dp</dimen>
     <dimen name="dimen_size_330">330dp</dimen>
     <dimen name="dimen_size_340">340dp</dimen>
+    <dimen name="dimen_size_360">360dp</dimen>
     <dimen name="dimen_size_380">380dp</dimen>
     <dimen name="dimen_size_400">400dp</dimen>
     <dimen name="dimen_size_424">424dp</dimen>
     <dimen name="dimen_size_448">448dp</dimen>
-
-    <!-- Layout Size -->
-    <dimen name="ll_under_line">1dp</dimen>
-    <dimen name="ll_margin">7dp</dimen>
-
-    <!-- Padding Size -->
-    <dimen name="bt_main_padding">15dp</dimen>
-    <dimen name="ll_under_line_margin_top">3dp</dimen>
-    <dimen name="tv_search_result_condition_padding">10dp</dimen>
-    <dimen name="listview_search_result_margin_vertical">5dp</dimen>
-    <dimen name="listview_search_result_padding_vertical">8dp</dimen>
-    <dimen name="listview_item_sidebar_margin_horizontal">7dp</dimen>
-    <dimen name="bt_user_info_hope_grounds">5dp</dimen>
-    <dimen name="listview_ranking_team_name_padding_left">10dp</dimen>
-    <dimen name="listview_ranking_drawable_left_padding">5dp</dimen>
-    <dimen name="listview_match_proc_margin_vertical">5dp</dimen>
-    <dimen name="listview_match_proc_padding_vertical">8dp</dimen>
 </resources>

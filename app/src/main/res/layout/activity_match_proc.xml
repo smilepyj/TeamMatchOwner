@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SearchResutActivity">
+    tools:context=".MatchProcActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -14,7 +14,7 @@
         android:background="@color/colorPrimary"
         android:elevation="1dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:titleTextColor="@color/color_toolbar_title">
+        app:titleTextColor="@color/color_313131">
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/notosanskr_regular"
             android:text="@string/match_proc_title"
-            android:textColor="@color/color_toolbar_title"
+            android:textColor="@color/color_313131"
             android:textSize="@dimen/font_size_16" />
     </android.support.v7.widget.Toolbar>
 
@@ -30,7 +30,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_search_result_listview_background"
+        android:background="@color/color_F8F8FA"
         android:gravity="center"
         android:orientation="vertical"
         android:weightSum="10">
@@ -38,7 +38,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/color_search_result_button_change_border" />
+            android:background="@color/color_D2D2D2" />
 
         <LinearLayout
             android:layout_width="match_parent"

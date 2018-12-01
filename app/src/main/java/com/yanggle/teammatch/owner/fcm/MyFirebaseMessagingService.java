@@ -15,7 +15,6 @@ import com.google.firebase.messaging.RemoteMessage;
 import com.yanggle.teammatch.owner.ApplicationTM;
 import com.yanggle.teammatch.owner.MatchProcActivity;
 import com.yanggle.teammatch.owner.R;
-import com.yanggle.teammatch.owner.util.DialogMatchSuccessActivity;
 
 import java.util.Map;
 
@@ -64,46 +63,46 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         try {
             mApplicationTM = (ApplicationTM) getApplication();
 
-            String team_id = mApplicationTM.getTeamId();
+//            String team_id = mApplicationTM.getTeamId();
 
             String match_alert_type = data.get("match_alert_type");
 
             if("7".equals(match_alert_type)) {
-                String match_id = data.get("match_id");
-                String host_team_id = data.get("host_team_id");
-                String host_team_name = data.get("host_team_name");
-                String host_team_lvl = data.get("host_team_lvl");
-                String host_team_point = data.get("host_team_point");
-                String host_team_user_name = data.get("host_team_user_name");
-                String host_team_user_tel = data.get("host_team_user_tel");
-                String guest_team_id = data.get("guest_team_id");
-                String guest_team_name = data.get("guest_team_name");
-                String guest_team_lvl = data.get("guest_team_lvl");
-                String guest_team_point = data.get("guest_team_point");
-                String guest_team_user_name = data.get("guest_team_user_name");
-                String guest_team_user_tel = data.get("guest_team_user_tel");
-                String hope_match_time = data.get("hope_match_time");
-                String hope_match_ground = data.get("hope_match_ground");
-                String hope_match_ground_tel = data.get("hope_match_ground_tel");
-                String hope_match_ground_cost = data.get("hope_match_ground_cost");
+//                String match_id = data.get("match_id");
+//                String host_team_id = data.get("host_team_id");
+//                String host_team_name = data.get("host_team_name");
+//                String host_team_lvl = data.get("host_team_lvl");
+//                String host_team_point = data.get("host_team_point");
+//                String host_team_user_name = data.get("host_team_user_name");
+//                String host_team_user_tel = data.get("host_team_user_tel");
+//                String guest_team_id = data.get("guest_team_id");
+//                String guest_team_name = data.get("guest_team_name");
+//                String guest_team_lvl = data.get("guest_team_lvl");
+//                String guest_team_point = data.get("guest_team_point");
+//                String guest_team_user_name = data.get("guest_team_user_name");
+//                String guest_team_user_tel = data.get("guest_team_user_tel");
+//                String hope_match_time = data.get("hope_match_time");
+//                String hope_match_ground = data.get("hope_match_ground");
+//                String hope_match_ground_tel = data.get("hope_match_ground_tel");
+//                String hope_match_ground_cost = data.get("hope_match_ground_cost");
 
-                Intent mIntent = new Intent(getApplicationContext(), DialogMatchSuccessActivity.class);
-                mIntent.putExtra("SUB_TITLE", "해당 시간으로 구장이용 신청을 하셨습니다.\n구장이용을 승인하시겠습니까?");
-                mIntent.putExtra("MATCH_ID", match_id);
-                mIntent.putExtra("HOST_TEAM_NAME", host_team_name);
-                mIntent.putExtra("HOST_TEAM_LVL", host_team_lvl);
-                mIntent.putExtra("HOST_TEAM_POINT", host_team_point);
-                mIntent.putExtra("HOST_TEAM_USER_NAME", host_team_user_name);
-                mIntent.putExtra("HOST_TEAM_USER_TEL", host_team_user_tel);
-                mIntent.putExtra("GUEST_TEAM_NAME", guest_team_name);
-                mIntent.putExtra("GUEST_TEAM_LVL", guest_team_lvl);
-                mIntent.putExtra("GUEST_TEAM_POINT", guest_team_point);
-                mIntent.putExtra("GUEST_TEAM_USER_NAME", guest_team_user_name);
-                mIntent.putExtra("GUEST_TEAM_USER_TEL", guest_team_user_tel);
-                mIntent.putExtra("HOPE_MATCH_GROUND", hope_match_ground);
-                mIntent.putExtra("MATCH_TIME", hope_match_time);
-                mIntent.putExtra("GROUND_COST", hope_match_ground_cost);
-                getApplicationContext().startActivity(mIntent);
+//                Intent mIntent = new Intent(getApplicationContext(), DialogMatchSuccessActivity.class);
+//                mIntent.putExtra("SUB_TITLE", "해당 시간으로 구장이용 신청을 하셨습니다.\n구장이용을 승인하시겠습니까?");
+//                mIntent.putExtra("MATCH_ID", match_id);
+//                mIntent.putExtra("HOST_TEAM_NAME", host_team_name);
+//                mIntent.putExtra("HOST_TEAM_LVL", host_team_lvl);
+//                mIntent.putExtra("HOST_TEAM_POINT", host_team_point);
+//                mIntent.putExtra("HOST_TEAM_USER_NAME", host_team_user_name);
+//                mIntent.putExtra("HOST_TEAM_USER_TEL", host_team_user_tel);
+//                mIntent.putExtra("GUEST_TEAM_NAME", guest_team_name);
+//                mIntent.putExtra("GUEST_TEAM_LVL", guest_team_lvl);
+//                mIntent.putExtra("GUEST_TEAM_POINT", guest_team_point);
+//                mIntent.putExtra("GUEST_TEAM_USER_NAME", guest_team_user_name);
+//                mIntent.putExtra("GUEST_TEAM_USER_TEL", guest_team_user_tel);
+//                mIntent.putExtra("HOPE_MATCH_GROUND", hope_match_ground);
+//                mIntent.putExtra("MATCH_TIME", hope_match_time);
+//                mIntent.putExtra("GROUND_COST", hope_match_ground_cost);
+//                getApplicationContext().startActivity(mIntent);
             }
         }catch(Exception e) {
             bNotification = false;

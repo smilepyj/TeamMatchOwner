@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string-array name="default_team_code">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
-    <string-array name="default_team_data">
-        <item>시지풋살장</item>
-        <item>수성풋살장</item>
-        <item>복현풋살클럽</item>
-        <item>반야월풋살장</item>
-    </string-array>
-    
     <string-array name="C001_code">
         <item>C001001</item>
         <item>C001002</item>
@@ -67,14 +52,18 @@
         <item>C004003</item>
         <item>C004004</item>
         <item>C004005</item>
+        <item>C004007</item>
+        <item>C004999</item>
     </string-array>
 
     <string-array name="C004_data">
-        <item>매칭 등록</item>
-        <item>매칭 신청</item>
-        <item>매칭 성사</item>
-        <item>매칭 완료</item>
-        <item>매칭 중단</item>
+        <item>매치 등록</item>
+        <item>매치 신청</item>
+        <item>매치 성사</item>
+        <item>매치 완료</item>
+        <item>매치 중단</item>
+        <item>매치 반려</item>
+        <item>매치 평가 완료</item>
     </string-array>
     
     <string-array name="C005_code">

@@ -61,7 +61,7 @@ public class MatchProcActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         try {
-            mService.searchOwnerMatchProcList(searchMatchProcList_Listener);
+            mService.searchOwnerMatchProcList(searchOwnerMatchProcList_Listener);
         }catch(Exception e) {
             Log.e(TAG, "MatchProcActivity onResume - " + e);
         }
@@ -79,7 +79,7 @@ public class MatchProcActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    ResponseListener searchMatchProcList_Listener = new ResponseListener() {
+    ResponseListener searchOwnerMatchProcList_Listener = new ResponseListener() {
         @Override
         public void receive(ResponseEvent responseEvent) {
             try {

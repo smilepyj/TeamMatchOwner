@@ -53,19 +53,76 @@ public class Service {
 
     /**
      * 로그인 서비스
-     * Created by maloman72 on 2018-10-31
+     * Created by maloman72 on 2018-11-30
      * */
-    public void userLogin(ResponseListener responseListener, String user_id, String user_email) {
+    public void ownerLogin(ResponseListener responseListener, String owner_id, String owner_password) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.userlogin_service);
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.ownerLogin_service);
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.userlogin_param_user_id), user_id);
-            mJSONObject.put(mContext.getString(R.string.userlogin_param_user_email), user_email);
+            mJSONObject.put(mContext.getString(R.string.ownerLogin_param_owner_id), owner_id);
+            mJSONObject.put(mContext.getString(R.string.ownerLogin_param_owner_password), owner_password);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
-            Log.e(TAG, "userLogin - " + e);
+            Log.e(TAG, "ownerLogin - " + e);
+        }
+    }
+
+    /**
+     * 구장주 매치 진행 상황 조회
+     * Created by maloman72 on 2018-12-01
+     * */
+    public void searchOwnerMatchProcList(ResponseListener responseListener) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchOwnerMatchProcList_service);
+
+            JSONObject mJSONObject = new JSONObject();
+//            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchProcList_param_owner_id), "asdf1234");
+            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchProcList_param_owner_id), mApplicationTM.getOwnerId());
+            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchProcList_param_search_count), mContext.getString(R.string.match_proc_search_count));
+            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchProcList_param_search_page), mContext.getString(R.string.match_proc_search_page));
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchOwnerMatchProcList" + e);
+        }
+    }
+
+    /**
+     * 매치 승인 요청 정보 상세 조회
+     * Created by maloman72 on 2018-12-02
+     * */
+    public void searchReqMatchApproveDetail(ResponseListener responseListener, String match_id) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchReqMatchApproveDetail_service);
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.searchReqMatchApproveDetail_param_owner_id), mApplicationTM.getOwnerId());
+            mJSONObject.put(mContext.getString(R.string.searchReqMatchApproveDetail_param_match_id), match_id);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "searchReqMatchApproveDetail - " + e);
+        }
+    }
+
+    /**
+     * 매치 승인/반려
+     * Created by maloman72 on 2018-12-02
+     * */
+    public void approveMatch(ResponseListener responseListener, String match_id, String approve_return_type) {
+        try {
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.approveMatch_service);
+
+            JSONObject mJSONObject = new JSONObject();
+            mJSONObject.put(mContext.getString(R.string.approveMatch_param_owner_id), mApplicationTM.getOwnerId());
+            mJSONObject.put(mContext.getString(R.string.approveMatch_param_match_id), match_id);
+            mJSONObject.put(mContext.getString(R.string.approveMatch_param_approve_return_type), approve_return_type);
+
+            Offer(mURL, mJSONObject, responseListener);
+        } catch (Exception e) {
+            Log.e(TAG, "approveMatch - " + e);
         }
     }
 
@@ -76,131 +133,14 @@ public class Service {
     public void searchGroundDetail(ResponseListener responseListener, String ground_id) {
         try {
             String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.ground_detail_service);
-            String user_id = mApplicationTM.getOwnerId();
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.ground_detail_param_user_id), user_id);
+            mJSONObject.put(mContext.getString(R.string.ground_detail_param_user_id), mApplicationTM.getOwnerId());
             mJSONObject.put(mContext.getString(R.string.ground_detail_param_ground_id), ground_id);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {
             Log.e(TAG, "searchGroundDetail - " + e);
-        }
-
-    }
-
-    /**
-     * 매치 진행 상황 조회
-     * Created by maloman72 on 218-11-08
-     * */
-    public void searchOwnerMatchProcList(ResponseListener responseListener) {
-        try {
-            String mURL = mContext.getString(R.string.service_url) + "matchProc/searchOwnerMatchProcList";
-            String owner_id = mApplicationTM.getOwnerId(), search_count = "50", search_page = "1";
-
-            owner_id = "asdf1234";
-
-            JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put("owner_id", owner_id);
-            mJSONObject.put("search_count", search_count);
-            mJSONObject.put("search_page", search_page);
-
-            Offer(mURL, mJSONObject, responseListener);
-        } catch (Exception e) {
-            Log.e(TAG, "searchMatchProcList - " + e);
-        }
-    }
-
-    /**
-     * 매치 수락/거절 서비스
-     * Created by maloman72 on 218-11-01
-     * */
-    public void acceptMatch(ResponseListener responseListener, String match_id, String match_apply_id, String accept_reject_type) {
-        try {
-            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.acceptMatch_service);
-            String user_id = mApplicationTM.getOwnerId();
-
-            JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.acceptMatch_param_user_id), user_id);
-            mJSONObject.put(mContext.getString(R.string.acceptMatch_param_match_id), match_id);
-            mJSONObject.put(mContext.getString(R.string.acceptMatch_param_match_apply_id), match_apply_id);
-            mJSONObject.put(mContext.getString(R.string.acceptMatch_param_accept_reject_type), accept_reject_type);
-
-            Log.e(TAG, mJSONObject + "");
-
-            Offer(mURL, mJSONObject, responseListener);
-        } catch (Exception e) {
-            Log.e(TAG, "acceptMatch - " + e);
-        }
-
-    }
-
-    /**
-     * 매치 승인/반려 서비스
-     * Created by maloman72 on 218-11-01
-     * */
-    public void approveMatch(ResponseListener responseListener, String match_id, String approve_return_type) {
-        try {
-            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.approveMatch_service);
-            String owner_id = mApplicationTM.getOwnerId();
-
-            owner_id = "asdf1234";
-
-            JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.approveMatch_param_owner_id), owner_id);
-            mJSONObject.put(mContext.getString(R.string.approveMatch_param_match_id), match_id);
-            mJSONObject.put(mContext.getString(R.string.approveMatch_param_approve_return_type), approve_return_type);
-
-            Log.e(TAG, mJSONObject + "");
-
-            Offer(mURL, mJSONObject, responseListener);
-        } catch (Exception e) {
-            Log.e(TAG, "approveMatch - " + e);
-        }
-
-    }
-
-    /**
-     * 매치 알람 정보 조회 서비스
-     * Created by maloman72 on 218-11-01
-     * */
-    public void searchMatchAlertInfo(ResponseListener responseListener, String match_id, String match_apply_id, String match_alert_type) {
-        try {
-            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchMatchAlertInfo_service);
-            String user_id = mApplicationTM.getOwnerId();
-
-            JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_user_id), user_id);
-            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_id), match_id);
-            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_apply_id), match_apply_id);
-            mJSONObject.put(mContext.getString(R.string.searchMatchAlertInfo_param_match_alert_type), match_alert_type);
-
-            Offer(mURL, mJSONObject, responseListener);
-        } catch (Exception e) {
-            Log.e(TAG, "searchMatchAlertInfo - " + e);
-        }
-
-    }
-
-    /**
-     * 구장주 매치 알람 정보 조회 서비스
-     * Created by maloman72 on 218-11-01
-     * */
-    public void searchOwnerMatchAlertInfo(ResponseListener responseListener, String match_id, String match_alert_type) {
-        try {
-            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchOwnerMatchAlertInfo_service);
-            String owner_id = mApplicationTM.getOwnerId();
-
-            owner_id = "asdf1234";
-
-            JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchAlertInfo_param_owner_id), owner_id);
-            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchAlertInfo_param_match_id), match_id);
-            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchAlertInfo_param_match_alert_type), match_alert_type);
-
-            Offer(mURL, mJSONObject, responseListener);
-        } catch (Exception e) {
-            Log.e(TAG, "searchMatchAlertInfo - " + e);
         }
 
     }

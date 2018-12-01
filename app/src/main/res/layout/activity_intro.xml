@@ -3,55 +3,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/im_background_intro"
-    tools:context=".IntroActivity"
-    android:weightSum="10">
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".IntroActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="9"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="10"
-        android:layout_weight="9">
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5.5"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:weightSum="10">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3.5"
-                android:background="@drawable/ic_main_logo"/>
-        </LinearLayout>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_logo_main" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingTop="@dimen/dimen_size_2"
+                android:paddingStart="@dimen/dimen_size_5"
+                android:paddingEnd="@dimen/dimen_size_5"
+                android:paddingBottom="@dimen/dimen_size_2"
+                android:background="@color/colorBlack"
+                android:text="@string/intro_owner"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/font_size_16" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/intro_version"
-            android:textSize="@dimen/font_size_15"
-            android:textColor="@color/colorWhite"/>
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font_size_15" />
 
         <TextView
             android:id="@+id/tv_intro_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/font_size_15"
-            android:textColor="@color/colorWhite"/>
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font_size_15" />
     </LinearLayout>
 </LinearLayout>

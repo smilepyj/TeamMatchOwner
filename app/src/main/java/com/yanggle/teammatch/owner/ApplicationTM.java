@@ -6,7 +6,6 @@ import android.app.Application;
 import android.app.ProgressDialog;
 import android.app.Service;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -16,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -29,11 +27,11 @@ public class ApplicationTM extends Application {
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
 
-    private static ApplicationTM instance;
-
     Context mContext;
 
     Map<String, String> C001, C002, C003, C004, C005;
+
+    JSONObject OwnerData = new JSONObject();
 
     @Override
     public void onCreate() {
@@ -44,7 +42,6 @@ public class ApplicationTM extends Application {
         mEditor.apply();
 
         mContext = this;
-        instance = this;
 
         setMapbyCode();
     }
@@ -52,7 +49,6 @@ public class ApplicationTM extends Application {
     @Override
     public void onTerminate() {
         super.onTerminate();
-        instance = null;
     }
 
     /**
@@ -142,25 +138,13 @@ public class ApplicationTM extends Application {
         return  C005;
     }
 
-    /**
-     * Data 선언 - Login Type
-     * Created by maloman72 on 2018-10-31
-     * */
-    public void setLoginType(String loginType) {
-        mEditor.putString("LOGIN_TYPE", loginType);
-        mEditor.apply();
-    }
-
-    public String getLoginType() {
-        return mSharedPreferences.getString("LOGIN_TYPE", "");
-    }
 
     /**
      * Data 선언 - Owner ID
-     * Created by maloman72 on 2018-10-31
+     * Created by maloman72 on 2018-11-30
      * */
-    public void setOwnerId(String userId) {
-        mEditor.putString("USER_ID", userId);
+    public void setOwnerId(String ownerid) {
+        mEditor.putString("OWNER_ID", ownerid);
         mEditor.apply();
     }
 
@@ -169,95 +153,28 @@ public class ApplicationTM extends Application {
     }
 
     /**
-     * Data 선언 - User Email
+     * Data 선언 - Owner Password
      * Created by maloman72 on 2018-10-31
      * */
-    public void setUserEmail(String email) {
-        mEditor.putString("USER_EMAIL", email);
+    public void setOwnerPassword(String ownerPassword) {
+        mEditor.putString("OWNER_PASSWORD", ownerPassword);
         mEditor.apply();
     }
 
-    public String getUserEmail() {
-        return mSharedPreferences.getString("USER_EMAIL", "");
+    public String getOwnerPassword() {
+        return mSharedPreferences.getString("OWNER_PASSWORD", "");
     }
 
     /**
-     * Data 선언 - User Name
-     * Created by maloman72 on 2018-11-04
-     * */
-    public void setUserName(String name) {
-        mEditor.putString("USER_NAME", name);
-        mEditor.apply();
-    }
-
-    public String getUserName() {
-        return mSharedPreferences.getString("USER_NAME", "");
-    }
-
-    /**
-     * Data 선언 - Team Id
+     * Data 선언 - Owner Data
      * Created by maloman72 on 2018-10-31
      * */
-    public void setTeamId(String email) {
-        mEditor.putString("TEAM_ID", email);
-        mEditor.apply();
+    public void setOwnerData(JSONObject jsonObject) {
+        OwnerData = jsonObject;
     }
 
-    public String getTeamId() {
-        return mSharedPreferences.getString("TEAM_ID", "");
-    }
-
-    /**
-     * Data 선언 - User Hope Grounds
-     * Created by maloman72 on 2018-11-01
-     * */
-    public void setHopeGrounds(JSONArray jsonArray) {
-        mEditor.putString("HOPE_GROUNDS", jsonArray.toString());
-        mEditor.apply();
-    }
-
-    public Map<String, String> getHopeGrounds() {
-        Map<String, String> mMap = new HashMap<>();
-
-        try {
-            JSONArray mJSONArray = new JSONArray(mSharedPreferences.getString("HOPE_GROUNDS", ""));
-
-            for(int i = 0; i < mJSONArray.length(); i++) {
-                JSONObject mJSONobject = mJSONArray.getJSONObject(i);
-                String mKey = mJSONobject.names().getString(0);
-                mMap.put(mKey, mJSONobject.getString(mKey));
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "getHopeGrounds - " + e);
-        }
-
-        return mMap;
-    }
-
-    /**
-     * Data 선언 - User Team Age
-     * Createc by maloman72 on 2018-11-01
-     * */
-    public void setTeamAge(String teamAge) {
-        mEditor.putString("TEAM_AGE", teamAge);
-        mEditor.apply();
-    }
-
-    public String getTeamAge() {
-        return mSharedPreferences.getString("TEAM_AGE", "");
-    }
-
-    /**
-     * Data 선언 - User Team Level
-     * Created by maloman72 on 2018-11-01
-     * */
-    public void setTeamLevel(String teamLevel) {
-        mEditor.putString("TEAM_LEVEL", teamLevel);
-        mEditor.apply();
-    }
-
-    public String getTeamLevel() {
-        return mSharedPreferences.getString("TEAM_LEVEL", "");
+    public JSONObject getOwnerData() {
+        return OwnerData;
     }
 
     /**
@@ -338,30 +255,6 @@ public class ApplicationTM extends Application {
         mBuilder.show();
     }
 
-    /** UserInfoActivity_Input_Exit */
-    public void UserInfoExitDialog(final Activity activity, Context context, String title, String message) {
-        AlertDialog.Builder mBuilder;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            mBuilder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert);
-        } else {
-            mBuilder = new AlertDialog.Builder(context);
-        }
-
-        mBuilder.setTitle(title);
-        mBuilder.setMessage(message);
-        mBuilder.setCancelable(false);
-        mBuilder.setPositiveButton(context.getString(R.string.alert_dialog_exit), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                activity.finish();
-                android.os.Process.killProcess(android.os.Process.myPid());
-            }
-        });
-        mBuilder.setNegativeButton(context.getString(R.string.alert_dialog_cancel), null);
-        mBuilder.show();
-    }
-
 
     /**
      * ArrayList to String
@@ -409,13 +302,4 @@ public class ApplicationTM extends Application {
 
         return mResult;
     }
-
-    public static ApplicationTM getGlobalApplicationContext() {
-        if (instance == null) {
-            throw new IllegalStateException("This Application does not inherit com.kakao.GlobalApplication");
-        }
-
-        return instance;
-    }
-
 }
