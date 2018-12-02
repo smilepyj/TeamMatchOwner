@@ -116,6 +116,8 @@ public class MatchProcListViewAdapter extends BaseAdapter {
         try {
             JSONObject mJSONObject = mDataJSONArray.getJSONObject(position);
 
+            Log.e(TAG, mJSONObject + "");
+
             match_id = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_id));
             match_hope_ground_id = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_id));
 
@@ -129,17 +131,22 @@ public class MatchProcListViewAdapter extends BaseAdapter {
             String mStartTime = new SimpleDateFormat(mContext.getString(R.string.type_time_format_view), Locale.getDefault()).format(mTime_1);
             String mEndTime = new SimpleDateFormat(mContext.getString(R.string.type_time_format_view), Locale.getDefault()).format(mTime_2);
             tv_listview_match_proc_time.setText(mStartTime + mContext.getString(R.string.matchproc_listview_wave) + mEndTime);
-            tv_listview_match_proc_cost.setText(mContext.getString(R.string.match_proc_no_result));
+            String match_hope_ground_cost = String.format("%,d", Integer.parseInt(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_cost))));
+            tv_listview_match_proc_cost.setText(match_hope_ground_cost + "원");
             tv_listview_match_proc_host_name.setText(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_name)));
             tv_listview_match_proc_host_level.setText(mApplicationTM.getC002().get(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_lvl))));
-            tv_listview_match_proc_host_member.setText(mContext.getString(R.string.match_proc_no_result));
-            tv_listview_match_proc_host_manager.setText(mContext.getString(R.string.match_proc_no_result));
-            tv_listview_match_proc_host_tel.setText(mContext.getString(R.string.match_proc_no_result));
+            String host_team_point = "".equals(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_point)))?"0":mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_point));
+            tv_listview_match_proc_host_member.setText(host_team_point + "점");
+            tv_listview_match_proc_host_manager.setText(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_user_name)));
+            host_tel = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_user_tel));
+            tv_listview_match_proc_host_tel.setText(host_tel);
             tv_listview_match_proc_guest_name.setText(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_name)));
             tv_listview_match_proc_guest_level.setText(mApplicationTM.getC002().get(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_lvl))));
-            tv_listview_match_proc_guest_member.setText(mContext.getString(R.string.match_proc_no_result));
-            tv_listview_match_proc_guest_manager.setText(mContext.getString(R.string.match_proc_no_result));
-            tv_listview_match_proc_guest_tel.setText(mContext.getString(R.string.match_proc_no_result));
+            String guest_team_point = "".equals(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_point)))?"0":mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_point));
+            tv_listview_match_proc_guest_member.setText(guest_team_point + "점");
+            tv_listview_match_proc_guest_manager.setText(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_user_name)));
+            guest_tel = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_user_tel));
+            tv_listview_match_proc_guest_tel.setText(guest_tel);
 
             match_proc_cd = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_proc_cd));
 //            String[] C004_code = mContext.getResources().getStringArray(R.array.C004_code);

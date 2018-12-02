@@ -33,11 +33,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.e(TAG, data + "");
 
         if(openPushAlert(data)) {
-            sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), data);
+            sendNotification(data);
         }
     }
 
-    private void sendNotification(String title, String message, Map<String, String> data) {
+    private void sendNotification(Map<String, String> data) {
         Intent intent = new Intent(this, MatchProcActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -47,8 +47,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_dialog_info))
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(title)
-                .setContentText(message)
+                .setContentTitle(data.get("title"))
+                .setContentText(data.get("body"))
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
