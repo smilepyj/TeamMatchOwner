@@ -2,7 +2,7 @@
     <string name="app_name">풋살매치 구장주용</string>
     <string name="application">TEAM_MATCH_OWNER</string>
 
-    <string name="kakao_app_key">79f45e8d30e69de7771e9f1030c5529b</string>
+    <string name="kakao_app_key">de3784e4aef2848b39091e5ef7671d7d</string>
 
     <!-- System Message-->
     <string name="exit_message">Back 버튼을 한번 더 누르면 어플리케이션이 종료됩니다.</string>

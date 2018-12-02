@@ -1,11 +1,14 @@
 package com.yanggle.teammatch.owner;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -42,7 +45,7 @@ public class ApproveMatchActivity extends AppCompatActivity {
 
     LinearLayout ll_approve_match_no, ll_approve_match_yes;
 
-    String host_tel, guest_tel;
+    String match_id, match_hope_ground_id, host_tel, guest_tel, approve_return_type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +88,14 @@ public class ApproveMatchActivity extends AppCompatActivity {
         ll_approve_match_no = findViewById(R.id.ll_approve_match_no);
         ll_approve_match_yes = findViewById(R.id.ll_approve_match_yes);
 
-        String match_id = getIntent().getStringExtra(mContext.getString(R.string.approve_match_match_id));
+        tv_approve_match_ground.setOnClickListener(mOnClickListener);
+        ib_approve_match_ground.setOnClickListener(mOnClickListener);
+        ib_approve_match_host_tel.setOnClickListener(mOnClickListener);
+        ib_approve_guest_host_tel.setOnClickListener(mOnClickListener);
+        ll_approve_match_no.setOnClickListener(mOnClickListener);
+        ll_approve_match_yes.setOnClickListener(mOnClickListener);
+
+        match_id = getIntent().getStringExtra(mContext.getString(R.string.approve_match_match_id));
 
         mService.searchOwnerMatchAlertInfo(searchOwnerMatchAlertInfo_Listener, match_id, "7");
     }
@@ -102,6 +112,50 @@ public class ApproveMatchActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    View.OnClickListener mOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent mIntent;
+
+            switch (v.getId()) {
+                case R.id.tv_approve_match_ground :
+                case R.id.ib_approve_match_ground :
+                    mIntent = new Intent(mContext, GroundDetailActivity.class);
+                    mIntent.putExtra(mContext.getString(R.string.ground_detail_ground_id), match_hope_ground_id);
+                    mContext.startActivity(mIntent);
+                    break;
+                case R.id.ib_approve_match_host_tel :
+                    if(host_tel != null) {
+                        mIntent = new Intent(Intent.ACTION_DIAL);
+                        mIntent.setData(Uri.parse(mApplicationTM.setCallingPhoneNumber(host_tel)));
+                        mContext.startActivity(mIntent);
+                    } else {
+                        mApplicationTM.makeToast(mContext, mContext.getString(R.string.match_proc_no_phone_number));
+                    }
+                    break;
+                case R.id.ib_approve_guest_host_tel :
+                    if(guest_tel != null) {
+                        mIntent = new Intent(Intent.ACTION_DIAL);
+                        mIntent.setData(Uri.parse(mApplicationTM.setCallingPhoneNumber(guest_tel)));
+                        mContext.startActivity(mIntent);
+                    } else {
+                        mApplicationTM.makeToast(mContext, mContext.getString(R.string.match_proc_no_phone_number));
+                    }
+                    break;
+                case R.id.ll_approve_match_no :
+                    approve_return_type = "R";
+                    mService.approveMatch(approveMatch_Listener, match_id, approve_return_type);
+                    break;
+                case R.id.ll_approve_match_yes :
+                    approve_return_type = "A";
+                    mService.approveMatch(approveMatch_Listener, match_id, approve_return_type);
+                    break;
+                default :
+                    break;
+            }
+        }
+    };
+
     ResponseListener searchOwnerMatchAlertInfo_Listener = new ResponseListener() {
         @Override
         public void receive(ResponseEvent responseEvent) {
@@ -114,6 +168,8 @@ public class ApproveMatchActivity extends AppCompatActivity {
                     JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
 
                     JSONObject json = (JSONObject)mJSONArray.get(0);
+
+                    match_hope_ground_id = json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_id));
 
                     tv_approve_match_area.setText(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_sido_name)) + mContext.getString(R.string.matchproc_listview_hypen) + json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_gugun_name)));
                     tv_approve_match_ground.setText(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_name)));
@@ -146,9 +202,36 @@ public class ApproveMatchActivity extends AppCompatActivity {
                 }
             } catch (Exception e) {
                 mApplicationTM.makeToast(mContext, getString(R.string.error_network));
-                Log.e(TAG, "searchReqMatchApproveDetail_Listener - " + e);
+                Log.e(TAG, "searchOwnerMatchAlertInfo_Listener - " + e);
             } finally {
                 mApplicationTM.stopProgress();
+            }
+        }
+    };
+
+    ResponseListener approveMatch_Listener = new ResponseListener() {
+        @Override
+        public void receive(ResponseEvent responseEvent) {
+            try {
+                JSONObject mJSONObject = new JSONObject(responseEvent.getResultData());
+
+                if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(mContext.getString(R.string.result_code)))) {
+
+                    if("A".equals(approve_return_type)) {
+
+                    }else if("R".equals(approve_return_type)) {
+                        mApplicationTM.makeToast(mContext, "매치 거절을 완료했습니다.");
+                    }
+
+                } else {
+                    mApplicationTM.makeToast(mContext, mJSONObject.get(mContext.getString(R.string.result_message)).toString());
+                }
+            } catch (Exception e) {
+                mApplicationTM.makeToast(mContext, mContext.getString(R.string.error_network));
+                Log.e(TAG, "approveMatch_Listener - " + e);
+            } finally {
+                mApplicationTM.stopProgress();
+                finish();
             }
         }
     };
