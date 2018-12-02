@@ -59,10 +59,11 @@
     <string name="searchOwnerMatchProcList_result_match_hope_team_lvl">match_hope_team_lvl</string>
     <string name="searchOwnerMatchProcList_result_pre_payment_at">pre_payment_at</string>
 
-    <!-- searchReqMatchApproveDetail Service -->
-    <string name="searchReqMatchApproveDetail_service">match/searchReqMatchApproveDetail</string>
-    <string name="searchReqMatchApproveDetail_param_owner_id">owner_id</string>
-    <string name="searchReqMatchApproveDetail_param_match_id">match_id</string>
+    <!-- searchOwnerMatchAlertInfo Service -->
+    <string name="searchOwnerMatchAlertInfo_service">match/searchOwnerMatchAlertInfo</string>
+    <string name="searchOwnerMatchAlertInfo_param_owner_id">owner_id</string>
+    <string name="searchOwnerMatchAlertInfo_param_match_id">match_id</string>
+    <string name="searchOwnerMatchAlertInfo_param_match_alert_type">match_alert_type</string>
 
     <string name="searchReqMatchApproveDetail_result_match_id">match_id</string>
     <string name="searchReqMatchApproveDetail_result_ground_id">ground_id</string>

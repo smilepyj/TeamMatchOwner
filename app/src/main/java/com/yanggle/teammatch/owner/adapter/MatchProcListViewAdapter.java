@@ -174,11 +174,11 @@ public class MatchProcListViewAdapter extends BaseAdapter {
                     Log.e(TAG, match_proc_cd);
                     Log.e(TAG, match_id);
 
-                    if("C004003".equals(match_proc_cd)) {
+//                    if("C004003".equals(match_proc_cd)) {
                         Intent mIntent = new Intent(mContext, ApproveMatchActivity.class);
                         mIntent.putExtra(mContext.getString(R.string.approve_match_match_id), match_id);
                         mContext.startActivity(mIntent);
-                    }
+//                    }
                 }
             });
 

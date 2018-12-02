@@ -1,5 +1,6 @@
 package com.yanggle.teammatch.owner.fcm;
 
+import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -13,9 +14,11 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.yanggle.teammatch.owner.ApplicationTM;
+import com.yanggle.teammatch.owner.ApproveMatchActivity;
 import com.yanggle.teammatch.owner.MatchProcActivity;
 import com.yanggle.teammatch.owner.R;
 
+import java.util.List;
 import java.util.Map;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -32,12 +35,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Log.e(TAG, data + "");
 
-        if(openPushAlert(data)) {
-            sendNotification(data);
+        if(isAppOnForeground()) {
+            openPushAlert(data);
+        }else {
+            String title = remoteMessage.getData().get("title");
+            String body = remoteMessage.getData().get("body");
+            sendNotification(title, body, data);
         }
     }
 
-    private void sendNotification(Map<String, String> data) {
+    private void sendNotification(String title, String body, Map<String, String> data) {
         Intent intent = new Intent(this, MatchProcActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -47,8 +54,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_dialog_info))
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(data.get("title"))
-                .setContentText(data.get("body"))
+                .setContentTitle(title)
+                .setContentText(body)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
@@ -66,8 +73,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 //            String team_id = mApplicationTM.getTeamId();
 
             String match_alert_type = data.get("match_alert_type");
+            String match_id = data.get("match_id");
 
             if("7".equals(match_alert_type)) {
+                Intent mIntent = new Intent(getApplicationContext(), ApproveMatchActivity.class);
+                mIntent.putExtra(getApplicationContext().getString(R.string.approve_match_match_id), match_id);
+                getApplicationContext().startActivity(mIntent);
+
 //                String match_id = data.get("match_id");
 //                String host_team_id = data.get("host_team_id");
 //                String host_team_name = data.get("host_team_name");
@@ -110,5 +122,20 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
 
         return bNotification;
+    }
+
+    public boolean isAppOnForeground() {
+        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
+        if(appProcesses == null) {
+            return false;
+        }
+        String packageName = getPackageName();
+        for(ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
+            if(appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND && appProcess.processName.equals(packageName)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

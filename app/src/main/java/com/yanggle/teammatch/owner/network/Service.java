@@ -93,13 +93,14 @@ public class Service {
      * 매치 승인 요청 정보 상세 조회
      * Created by maloman72 on 2018-12-02
      * */
-    public void searchReqMatchApproveDetail(ResponseListener responseListener, String match_id) {
+    public void searchOwnerMatchAlertInfo(ResponseListener responseListener, String match_id, String match_alert_type) {
         try {
-            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchReqMatchApproveDetail_service);
+            String mURL = mContext.getString(R.string.service_url) + mContext.getString(R.string.searchOwnerMatchAlertInfo_service);
 
             JSONObject mJSONObject = new JSONObject();
-            mJSONObject.put(mContext.getString(R.string.searchReqMatchApproveDetail_param_owner_id), mApplicationTM.getOwnerId());
-            mJSONObject.put(mContext.getString(R.string.searchReqMatchApproveDetail_param_match_id), match_id);
+            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchAlertInfo_param_owner_id), mApplicationTM.getOwnerId());
+            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchAlertInfo_param_match_id), match_id);
+            mJSONObject.put(mContext.getString(R.string.searchOwnerMatchAlertInfo_param_match_alert_type), match_alert_type);
 
             Offer(mURL, mJSONObject, responseListener);
         } catch (Exception e) {

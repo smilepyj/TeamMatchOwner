@@ -4,9 +4,23 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.CheckBox;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.yanggle.teammatch.owner.network.ResponseEvent;
+import com.yanggle.teammatch.owner.network.ResponseListener;
 import com.yanggle.teammatch.owner.network.Service;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class ApproveMatchActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
@@ -17,6 +31,18 @@ public class ApproveMatchActivity extends AppCompatActivity {
     private Service mService;
 
     Toolbar toolbar;
+
+    TextView tv_approve_match_area, tv_approve_match_ground, tv_approve_match_day, tv_approve_match_time, tv_approve_match_cost,
+            tv_approve_match_host_name, tv_approve_match_host_level, tv_approve_match_host_member, tv_approve_match_host_manager, tv_approve_match_host_tel,
+            tv_approve_match_guest_name, tv_approve_match_guest_level, tv_approve_match_guest_member, tv_approve_match_guest_manager, tv_approve_guest_host_tel;
+
+    ImageButton ib_approve_match_ground, ib_approve_match_host_tel, ib_approve_guest_host_tel;
+
+    CheckBox cb_approve_match_warning;
+
+    LinearLayout ll_approve_match_no, ll_approve_match_yes;
+
+    String host_tel, guest_tel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +59,35 @@ public class ApproveMatchActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+
+        tv_approve_match_area = findViewById(R.id.tv_approve_match_area);
+        tv_approve_match_ground = findViewById(R.id.tv_approve_match_ground);
+        tv_approve_match_day = findViewById(R.id.tv_approve_match_day);
+        tv_approve_match_time = findViewById(R.id.tv_approve_match_time);
+        tv_approve_match_cost = findViewById(R.id.tv_approve_match_cost);
+        tv_approve_match_host_name = findViewById(R.id.tv_approve_match_host_name);
+        tv_approve_match_host_level = findViewById(R.id.tv_approve_match_host_level);
+        tv_approve_match_host_member = findViewById(R.id.tv_approve_match_host_member);
+        tv_approve_match_host_manager = findViewById(R.id.tv_approve_match_host_manager);
+        tv_approve_match_host_tel = findViewById(R.id.tv_approve_match_host_tel);
+        tv_approve_match_guest_name = findViewById(R.id.tv_approve_match_guest_name);
+        tv_approve_match_guest_level = findViewById(R.id.tv_approve_match_guest_level);
+        tv_approve_match_guest_member = findViewById(R.id.tv_approve_match_guest_member);
+        tv_approve_match_guest_manager = findViewById(R.id.tv_approve_match_guest_manager);
+        tv_approve_guest_host_tel = findViewById(R.id.tv_approve_guest_host_tel);
+
+        ib_approve_match_ground = findViewById(R.id.ib_approve_match_ground);
+        ib_approve_match_host_tel = findViewById(R.id.ib_approve_match_host_tel);
+        ib_approve_guest_host_tel = findViewById(R.id.ib_approve_guest_host_tel);
+
+        cb_approve_match_warning = findViewById(R.id.cb_approve_match_warning);
+
+        ll_approve_match_no = findViewById(R.id.ll_approve_match_no);
+        ll_approve_match_yes = findViewById(R.id.ll_approve_match_yes);
+
+        String match_id = getIntent().getStringExtra(mContext.getString(R.string.approve_match_match_id));
+
+        mService.searchOwnerMatchAlertInfo(searchOwnerMatchAlertInfo_Listener, match_id, "7");
     }
 
     @Override
@@ -46,4 +101,55 @@ public class ApproveMatchActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    ResponseListener searchOwnerMatchAlertInfo_Listener = new ResponseListener() {
+        @Override
+        public void receive(ResponseEvent responseEvent) {
+            try {
+                JSONObject mJSONObject = new JSONObject(responseEvent.getResultData());
+
+                Log.e(TAG, mJSONObject.toString());
+
+                if(mContext.getString(R.string.service_sucess).equals(mJSONObject.get(getString(R.string.result_code)))) {
+                    JSONArray mJSONArray = mJSONObject.getJSONArray(mContext.getString(R.string.result_data));
+
+                    JSONObject json = (JSONObject)mJSONArray.get(0);
+
+                    tv_approve_match_area.setText(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_sido_name)) + mContext.getString(R.string.matchproc_listview_hypen) + json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_gugun_name)));
+                    tv_approve_match_ground.setText(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_name)));
+                    Date mDate = new SimpleDateFormat(mContext.getString(R.string.type_date_format_base), Locale.getDefault()).parse(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_date)));
+                    String mDay = new SimpleDateFormat(mContext.getString(R.string.type_date_format_view), Locale.getDefault()).format(mDate);
+                    tv_approve_match_day.setText(mDay);
+                    Date mTime_1 = new SimpleDateFormat(mContext.getString(R.string.type_time_format_base), Locale.getDefault()).parse(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_start_time)));
+                    Date mTime_2 = new SimpleDateFormat(mContext.getString(R.string.type_time_format_base), Locale.getDefault()).parse(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_end_time)));
+                    String mStartTime = new SimpleDateFormat(mContext.getString(R.string.type_time_format_view), Locale.getDefault()).format(mTime_1);
+                    String mEndTime = new SimpleDateFormat(mContext.getString(R.string.type_time_format_view), Locale.getDefault()).format(mTime_2);
+                    tv_approve_match_time.setText(mStartTime + mContext.getString(R.string.matchproc_listview_wave) + mEndTime);
+                    String match_hope_ground_cost = String.format("%,d", Integer.parseInt(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_cost))));
+                    tv_approve_match_cost.setText(match_hope_ground_cost + "원");
+                    tv_approve_match_host_name.setText(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_name)));
+                    tv_approve_match_host_level.setText(mApplicationTM.getC002().get(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_lvl))));
+                    String host_team_point = "".equals(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_point)))?"0":json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_point));
+                    tv_approve_match_host_member.setText(host_team_point + "점");
+                    tv_approve_match_host_manager.setText(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_user_name)));
+                    host_tel = json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_user_tel));
+                    tv_approve_match_host_tel.setText(host_tel);
+                    tv_approve_match_guest_name.setText(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_name)));
+                    tv_approve_match_guest_level.setText(mApplicationTM.getC002().get(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_lvl))));
+                    String guest_team_point = "".equals(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_point)))?"0":json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_point));
+                    tv_approve_match_guest_member.setText(guest_team_point + "점");
+                    tv_approve_match_guest_manager.setText(json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_user_name)));
+                    guest_tel = json.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_user_tel));
+                    tv_approve_guest_host_tel.setText(guest_tel);
+                } else {
+                    mApplicationTM.makeToast(mContext, mJSONObject.get(getString(R.string.result_message)).toString());
+                }
+            } catch (Exception e) {
+                mApplicationTM.makeToast(mContext, getString(R.string.error_network));
+                Log.e(TAG, "searchReqMatchApproveDetail_Listener - " + e);
+            } finally {
+                mApplicationTM.stopProgress();
+            }
+        }
+    };
 }
