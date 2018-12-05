@@ -8,5 +8,8 @@
         android:right="@dimen/dimen_size_20"
         android:top="@dimen/dimen_size_15" />
     <solid android:color="@color/colorWhite" />
+    <stroke
+        android:width="@dimen/dimen_size_1"
+        android:color="@color/color_D2D2D2" />
     <corners android:radius="@dimen/dimen_size_5" />
 </shape>

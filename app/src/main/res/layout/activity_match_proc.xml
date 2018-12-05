@@ -1,69 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dl_activity_match_proc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MatchProcActivity">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        android:elevation="1dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:titleTextColor="@color/color_313131">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/notosanskr_regular"
-            android:text="@string/match_proc_title"
-            android:textColor="@color/color_313131"
-            android:textSize="@dimen/font_size_16" />
-    </android.support.v7.widget.Toolbar>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_F8F8FA"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:weightSum="10">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_D2D2D2" />
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="1dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:titleTextColor="@color/color_313131">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/notosanskr_regular"
+                android:text="@string/match_proc_title"
+                android:textColor="@color/color_313131"
+                android:textSize="@dimen/font_size_16" />
+        </android.support.v7.widget.Toolbar>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/color_F8F8FA"
             android:gravity="center"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:weightSum="10">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_D2D2D2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="9.75"
                 android:gravity="center"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:weightSum="10">
 
-                <ListView
-                    android:id="@+id/lv_match_hist"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="9.75"
-                    android:divider="@null"
-                    android:dividerHeight="3dp" />
-            </LinearLayout>
-        </LinearLayout>
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="10">
 
+                    <ListView
+                        android:id="@+id/lv_match_hist"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="9.75"
+                        android:divider="@null"
+                        android:dividerHeight="3dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <include layout="@layout/navigation_drawer" />
+</android.support.v4.widget.DrawerLayout>

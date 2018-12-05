@@ -170,6 +170,7 @@ public class ApplicationTM extends Application {
      * Created by maloman72 on 2018-10-31
      * */
     public void setOwnerData(JSONObject jsonObject) {
+        Log.e(TAG, "setOwnerData - " + jsonObject.toString());
         OwnerData = jsonObject;
     }
 

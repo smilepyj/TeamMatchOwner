@@ -28,7 +28,7 @@ import java.util.Locale;
 public class MatchProcListViewAdapter extends BaseAdapter {
     private final String TAG = this.getClass().getSimpleName();
 
-    LayoutInflater mLayoutInflater = null;
+    private LayoutInflater mLayoutInflater = null;
     private JSONArray mDataJSONArray = null;
     private int mDataJSONArrayCnt = 0;
 
@@ -40,7 +40,9 @@ public class MatchProcListViewAdapter extends BaseAdapter {
             tv_listview_match_proc_host_level, tv_listview_match_proc_host_member, tv_listview_match_proc_host_manager, tv_listview_match_proc_host_tel, tv_listview_match_proc_guest_name,
             tv_listview_match_proc_guest_level, tv_listview_match_proc_guest_member, tv_listview_match_proc_guest_manager, tv_listview_match_proc_guest_tel, tv_listview_match_proc_state;
 
-    private String match_hope_ground_id, host_tel, guest_tel;
+    private String match_hope_ground_id, host_tel, guest_tel, match_id, match_proc_cd;
+
+    private String[] C0004_code;
 
     public MatchProcListViewAdapter(Context context) {
         mContext = context;
@@ -70,6 +72,7 @@ public class MatchProcListViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 //        final int mPosition = position;
+        C0004_code = mContext.getResources().getStringArray(R.array.C004_code);
 
         if(convertView == null) {
             if(mLayoutInflater == null) {
@@ -102,20 +105,21 @@ public class MatchProcListViewAdapter extends BaseAdapter {
             ImageButton ib_listview_match_proc_host_tel = convertView.findViewById(R.id.ib_listview_match_proc_host_tel);
             ImageButton ib_listview_match_proc_guest_tel = convertView.findViewById(R.id.ib_listview_match_proc_guest_tel);
 
-//            ll_listview_match_proc_state.setOnClickListener(mOnClickListener);
+            ll_listview_match_proc_state.setOnClickListener(mOnClickListener);
 
             tv_listview_match_proc_ground.setOnClickListener(mOnClickListener);
             ib_listview_match_proc_ground.setOnClickListener(mOnClickListener);
             ib_listview_match_proc_host_tel.setOnClickListener(mOnClickListener);
             ib_listview_match_proc_guest_tel.setOnClickListener(mOnClickListener);
 
-//            tv_listview_match_proc_state.setOnClickListener(mOnClickListener);
+            tv_listview_match_proc_state.setOnClickListener(mOnClickListener);
         }
 
         try {
             JSONObject mJSONObject = mDataJSONArray.getJSONObject(position);
 
-            final String match_id = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_id));
+            match_id = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_id));
+            match_proc_cd = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_proc_cd));
             match_hope_ground_id = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_id));
 
             tv_listview_match_proc_area.setText(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_sido_name)) + mContext.getString(R.string.matchproc_listview_hypen) + mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_gugun_name)));
@@ -129,74 +133,40 @@ public class MatchProcListViewAdapter extends BaseAdapter {
             String mEndTime = new SimpleDateFormat(mContext.getString(R.string.type_time_format_view), Locale.getDefault()).format(mTime_2);
             tv_listview_match_proc_time.setText(mStartTime + mContext.getString(R.string.matchproc_listview_wave) + mEndTime);
             String match_hope_ground_cost = String.format("%,d", Integer.parseInt(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_hope_ground_cost))));
-            tv_listview_match_proc_cost.setText(match_hope_ground_cost + "원");
+            tv_listview_match_proc_cost.setText(match_hope_ground_cost + mContext.getString(R.string.matchproc_listview_won));
             tv_listview_match_proc_host_name.setText(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_name)));
             tv_listview_match_proc_host_level.setText(mApplicationTM.getC002().get(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_lvl))));
             String host_team_point = "".equals(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_point)))?"0":mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_point));
-            tv_listview_match_proc_host_member.setText(host_team_point + "점");
+            tv_listview_match_proc_host_member.setText(host_team_point + mContext.getString(R.string.matchproc_listview_score));
             tv_listview_match_proc_host_manager.setText(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_user_name)));
             host_tel = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_host_team_user_tel));
             tv_listview_match_proc_host_tel.setText(host_tel);
             tv_listview_match_proc_guest_name.setText(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_name)));
             tv_listview_match_proc_guest_level.setText(mApplicationTM.getC002().get(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_lvl))));
             String guest_team_point = "".equals(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_point)))?"0":mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_point));
-            tv_listview_match_proc_guest_member.setText(guest_team_point + "점");
+            tv_listview_match_proc_guest_member.setText(guest_team_point + mContext.getString(R.string.matchproc_listview_score));
             tv_listview_match_proc_guest_manager.setText(mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_user_name)));
             guest_tel = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_guest_team_user_tel));
             tv_listview_match_proc_guest_tel.setText(guest_tel);
 
-            final String match_proc_cd = mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_proc_cd));
-//            String[] C004_code = mContext.getResources().getStringArray(R.array.C004_code);
-
-            Log.e(TAG, "match_proc_cd - " + match_proc_cd + ", searchOwnerMatchProcList_result_match_proc_cd_name - " + mJSONObject.getString(mContext.getString(R.string.searchOwnerMatchProcList_result_match_proc_cd_name)));
-
-            if("C004003".equals(match_proc_cd)) {  // 사용승인 확인중
-                ll_listview_match_proc_state.setBackgroundColor(ContextCompat.getColor(mContext, R.color.color_0D68BE));
-                tv_listview_match_proc_state.setText("사용승인\n확인중");
-            }else if("C004004".equals(match_proc_cd)) {  // 사용승인 완료
-                ll_listview_match_proc_state.setBackgroundColor(ContextCompat.getColor(mContext, R.color.color_007338));
-                tv_listview_match_proc_state.setText("사용승인\n완료");
-            }else if("C004005".equals(match_proc_cd)) {  // 구장이용 완료
-                ll_listview_match_proc_state.setBackgroundColor(ContextCompat.getColor(mContext, R.color.color_A8A8A8));
-                tv_listview_match_proc_state.setText("구장이용\n완료");
-            }else if("C004006".equals(match_proc_cd)) {  // 구장이용 완료
-                ll_listview_match_proc_state.setBackgroundColor(ContextCompat.getColor(mContext, R.color.color_A8A8A8));
-                tv_listview_match_proc_state.setText("구장이용\n완료");
-            }else if("C004007".equals(match_proc_cd)) {  // 사용승인 거절
-                ll_listview_match_proc_state.setBackgroundColor(ContextCompat.getColor(mContext, R.color.color_E04549));
-                tv_listview_match_proc_state.setText("사용승인\n거절");
+            if(C0004_code[2].equals(match_proc_cd)) {  // 사용승인 확인중
+                ll_listview_match_proc_state.setBackground(mContext.getDrawable(R.drawable.dr_background_list_item_sub_0d68be));
+                tv_listview_match_proc_state.setText(mContext.getString(R.string.matchproc_listview_C004003));
+            }else if(C0004_code[3].equals(match_proc_cd)) {  // 사용승인 완료
+                ll_listview_match_proc_state.setBackground(mContext.getDrawable(R.drawable.dr_background_list_item_sub_007338));
+                tv_listview_match_proc_state.setText(mContext.getString(R.string.matchproc_listview_C004004));
+            }else if(C0004_code[4].equals(match_proc_cd)) {  // 구장이용 완료
+                ll_listview_match_proc_contents.setBackground(mContext.getDrawable(R.drawable.dr_background_list_item_sub_d3d3d3));
+                ll_listview_match_proc_state.setBackground(mContext.getDrawable(R.drawable.dr_background_list_item_sub_a8a8a8));
+                tv_listview_match_proc_state.setText(mContext.getString(R.string.matchproc_listview_C004005));
+            }else if("C004006".equals(match_proc_cd)) {  // 구장이용 완료 ???? what code?????
+                ll_listview_match_proc_contents.setBackground(mContext.getDrawable(R.drawable.dr_background_list_item_sub_d3d3d3));
+                ll_listview_match_proc_state.setBackground(mContext.getDrawable(R.drawable.dr_background_list_item_sub_a8a8a8));
+                tv_listview_match_proc_state.setText(mContext.getString(R.string.matchproc_listview_C004006));
+            }else if(C0004_code[5].equals(match_proc_cd)) {  // 사용승인 거절
+                ll_listview_match_proc_state.setBackground(mContext.getDrawable(R.drawable.dr_background_list_item_sub_ed4549));
+                tv_listview_match_proc_state.setText(mContext.getString(R.string.matchproc_listview_C004007));
             }
-
-            ll_listview_match_proc_state.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Log.e(TAG, match_proc_cd);
-                    Log.e(TAG, match_id);
-
-//                    if("C004003".equals(match_proc_cd)) {
-                        Intent mIntent = new Intent(mContext, ApproveMatchActivity.class);
-                        mIntent.putExtra(mContext.getString(R.string.approve_match_match_id), match_id);
-                        mContext.startActivity(mIntent);
-//                    }
-                }
-            });
-
-//            tv_listview_match_proc_state.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                    Log.e(TAG, match_proc_cd);
-//                    Log.e(TAG, match_id);
-//
-//                    if("C004003".equals(match_proc_cd)) {
-//                        Intent mIntent = new Intent(mContext, ApproveMatchActivity.class);
-//                        mIntent.putExtra(mContext.getString(R.string.approve_match_match_id), match_id);
-//                        mContext.startActivity(mIntent);
-//                    }
-//                }
-//            });
-
         } catch (Exception e) {
             Log.e(TAG, "getView - " + e);
             e.printStackTrace();
@@ -236,16 +206,16 @@ public class MatchProcListViewAdapter extends BaseAdapter {
                         mApplicationTM.makeToast(mContext, mContext.getString(R.string.match_proc_no_phone_number));
                     }
                     break;
-//                case R.id.ll_listview_match_proc_state :
-//                case R.id.tv_listview_match_proc_state :
-//                    Log.e(TAG, match_proc_cd);
-//
-//                    if("C004003".equals(match_proc_cd)) {
-//                        mIntent = new Intent(mContext, ApproveMatchActivity.class);
-//                        mIntent.putExtra(mContext.getString(R.string.approve_match_match_id), match_id);
-//                        mContext.startActivity(mIntent);
-//                    }
-//                    break;
+                case R.id.ll_listview_match_proc_state :
+                case R.id.tv_listview_match_proc_state :
+                    Log.e(TAG, match_proc_cd);
+
+                    if("C004003".equals(match_proc_cd)) {
+                        mIntent = new Intent(mContext, ApproveMatchActivity.class);
+                        mIntent.putExtra(mContext.getString(R.string.approve_match_match_id), match_id);
+                        mContext.startActivity(mIntent);
+                    }
+                    break;
                 default :
                     break;
             }

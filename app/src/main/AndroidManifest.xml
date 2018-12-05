@@ -60,7 +60,12 @@
         <activity
             android:name=".util.DialogAlertActivity"
             android:theme="@style/DialogTheme" />
-        <activity android:name=".ApproveMatchActivity"></activity>
+        <activity
+            android:name=".ApproveMatchActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".util.DialogReportActivity"
+            android:theme="@style/DialogTheme" />
     </application>
 
 </manifest>

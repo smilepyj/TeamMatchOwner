@@ -15,10 +15,8 @@
 
     <!-- Navigation -->
     <string name="navigation_header_main"> 님 반갑습니다.</string>
-    <string name="navigation_item_user">나의 팀 정보</string>
-    <string name="navigation_item_match">나의 매치 정보</string>
-    <string name="navigation_item_ranking">풋매랭킹</string>
     <string name="navigation_item_logout">로그아웃</string>
+    <string name="navigation_item_report">버그/불편사항 신고</string>
     <string name="navigation_call_center">풋살매치 고객센터</string>
     <string name="navigation_call_number">1544-7979</string>
 
@@ -27,13 +25,21 @@
     
     <!-- MatchProc ListView-->
     <string name="matchproc_listview_cost">구장이용료 총</string>
+    <string name="matchproc_listview_won">원</string>
     <string name="matchproc_listview_host">호스트팀</string>
     <string name="matchproc_listview_guest">게스트팀</string>
     <string name="matchproc_listview_manager">담당자</string>
+    <string name="matchproc_listview_score">점</string>
     <string name="matchproc_listview_9">(</string>
     <string name="matchproc_listview_0">)</string>
     <string name="matchproc_listview_hypen">&#160;-&#160;</string>
     <string name="matchproc_listview_wave">&#160;~&#160;</string>
+    
+    <string name="matchproc_listview_C004003">사용승인\n확인중</string>
+    <string name="matchproc_listview_C004004">사용승인\n완료</string>
+    <string name="matchproc_listview_C004005">구장이용\n완료</string>
+    <string name="matchproc_listview_C004006">구장이용\n완료</string>
+    <string name="matchproc_listview_C004007">사용승인\n거절</string>
 
     <!-- ApproveMatch Activity -->
     <string name="approvematch_title">구장 사용 요청</string>
@@ -78,4 +84,10 @@
 
     <!-- GroundLocation Activity -->
     <string name="ground_location_title">구장 위치 정보</string>
+
+    <!--Report Dialog -->
+    <string name="report_title">버그/불편사항 신고하기</string>
+    <string name="report_sub_contents">신고해주신 사항은 최대한\n빠르게 처리할 수 있도록 하겠습니다. 감사합니다!</string>
+    <string name="report_cancel">취 소</string>
+    <string name="report_send">신고하기</string>
 </resources>
